@@ -18,4 +18,49 @@ $(document).ready(function(){
 		$(this).removeClass('ie-tel');
 	});
 
+	// hamburger-menu
+	var burgerBtn = $('#h-burger');
+	var burgerNav = $('#h-burger-nav');
+
+	burgerBtn.on('click', function(){
+		$(this).toggleClass('active');
+		burgerNav.toggleClass('active');
+	});
+
+	// aside bar
+	var content = $('main');
+	var asideBtn = $('#m-aside-toggle');
+	var asideBar = $('.m-aside');
+
+	asideBtn.on('click', function(){
+		$(this).toggleClass('active');
+		asideBar.toggleClass('hidden');
+		content.toggleClass('aside-yes aside-no');
+	});
+
+	// search bar
+	var searchLinks = $('.m-header-sections').find('a.active');
+	var searchBtn = $('.m-header-search-toggle');
+
+	searchBtn.on('click', function(e){
+		$(this).toggleClass('active');
+		searchLinks.toggleClass('inactive');
+		e.preventDefault();
+	});
+
+	// custom scrollbar
+	var scrollBlock = $('.nano');
+
+	scrollBlock.nanoScroller();
+
+	// custom select
+	function selectPos(){
+		$(this).parent().find('.sod_list_wrapper').css('top', - $(this).parent().find('.sod_option.selected').position().top );
+	}
+
+	$('.wrapper select').selectOrDie({
+		size: 5,
+		onChange: selectPos
+	}).each(selectPos);
+
 });

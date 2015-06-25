@@ -69,6 +69,12 @@ input.ie-tel::-ms-clear {
     display: none;
 }
 
+input[type="text"] {
+	&:focus {
+		.placeholder(transparent);
+	}
+}
+
 label {
 	font-weight: normal;
 }
@@ -86,4 +92,8 @@ hr {
 	height: 1px;
 	background: #484848;
 	border: 0;
+}
+
+img {
+	max-width: 100%;
 }
