@@ -63,4 +63,37 @@ $(document).ready(function(){
 		onChange: selectPos
 	}).each(selectPos);
 
+	// more filters btn (mobile)
+	var moreFiltersBtn = $('.m-filters-more');
+	var hiddenFilters = $('.m-mobile-hidden');
+
+	moreFiltersBtn.on('click', function(){
+		$(this).toggleClass('active');
+		hiddenFilters.slideToggle();
+
+		if ( $(this).hasClass('active') ) {
+			$(this).text('Меньше параметров')
+		} else {
+			$(this).text('Больше параметров')
+		}
+	});
+
+	// filters tabs (mobile)
+	var filterTab = $('.m-aside-tabs').find('a');
+	var tabContent = $('.m-aside-tabs-content');
+
+	filterTab.on('click', function(e){
+
+		if ( $(this).hasClass('active') ) {
+			filterTab.removeClass('active');
+			tabContent.slideUp();
+		} else {
+			$(this).addClass('active').siblings().removeClass('active');
+			tabContent.slideUp();
+			$( $(this).attr('href') ).slideToggle();
+		}
+
+		e.preventDefault();
+	});
+
 });

@@ -126,24 +126,29 @@
 
 					</div><!-- .m-aside-header -->
 
-					<div class="m-aside-content nano">
+					<div class="m-aside-tabs">
+						<a class="m-aside-tabs-filter" href="#m-tab-filter-content">Фильтровать</a>
+						<a class="m-aside-tabs-sort" href="#m-tab-sort-content">Сортировать</a>
+					</div>
+
+					<div class="m-aside-content nano m-aside-tabs-content" id="m-tab-filter-content">
 
 						<div class="nano-content">
 
 							<div class="m-aside-content-wrapper">
 
-								<h2 class="m-aside-content-heading">Фильтр</h2>
+								<h2 class="m-aside-content-heading m-mobile-hidden">Фильтр</h2>
 								
 								<div class="m-filters">
 
-									<div class="m-filters-row">
+									<div class="m-filters-row m-mobile-hidden">
 
 										<div class="m-filter-toggle m-filter-toggle-no">
 											<input type="radio" id="filter-category-fast" name="filter-category" checked>
-											<label for="filter-category-fast">Срочный выкуп</label>
+											<label for="filter-category-fast"><span>Срочный выкуп</span></label>
 
 											<input type="radio" id="filter-category-spec" name="filter-category">
-											<label for="filter-category-spec">Спец. предложение</label>
+											<label for="filter-category-spec"><span>Спец. предложение</span></label>
 										</div>
 
 									</div>
@@ -168,12 +173,12 @@
 
 										<div class="m-filter-toggle">
 											<input type="radio" id="filter-price-obj" name="filter-price" checked>
-											<label for="filter-price-obj">За объект</label>
+											<label for="filter-price-obj"><span>За объект</span></label>
 
 											<span class="m-filter-toggle-trigger"></span>
 
 											<input type="radio" id="filter-price-metr" name="filter-price">
-											<label for="filter-price-metr">За метр квадратный</label>
+											<label for="filter-price-metr"><span>За метр кв<b>адратный</b><b class="dot">.</b></span></label>
 										</div>
 
 										<select>
@@ -188,12 +193,12 @@
 
 										<div class="m-filter-toggle">
 											<input type="radio" id="filter-size-square" name="filter-size">
-											<label for="filter-size-square">Площадь</label>
+											<label for="filter-size-square"><span>Площадь</span></label>
 
 											<span class="m-filter-toggle-trigger"></span>
 
 											<input type="radio" id="filter-size-bed" name="filter-size" checked>
-											<label for="filter-size-bed">Количество спален</label>
+											<label for="filter-size-bed"><span>Количество спален</span></label>
 										</div>
 
 										<div class="m-filter-size">
@@ -218,7 +223,7 @@
 										
 									</div>
 
-									<div class="m-filters-row">
+									<div class="m-filters-row m-mobile-hidden">
 										<h3>Расположение объекта:</h3>
 
 										<select>
@@ -258,7 +263,7 @@
 										</select>
 									</div>
 
-									<div class="m-filters-row m-filters-row-light">
+									<div class="m-filters-row m-filters-row-light m-mobile-hidden">
 										<h3>Тип недвижимости:</h3>
 
 										<div class="m-filter-pick">
@@ -280,7 +285,7 @@
 										
 									</div>
 
-									<div class="m-filters-row m-filters-row-light">
+									<div class="m-filters-row m-filters-row-light m-mobile-hidden">
 										
 										<div class="m-filter-pick">
 											<input type="checkbox" id="new-1" checked>
@@ -304,7 +309,7 @@
 										</div>
 									</div>
 
-									<div class="m-filters-row">
+									<div class="m-filters-row m-mobile-hidden">
 
 										<h3>Этаж:</h3>
 
@@ -319,6 +324,10 @@
 											<option value="7">7</option>
 										</select>
 									</div>
+
+									<div class="m-filters-more" id="m-filters-more">
+										Больше параметров
+									</div>
 									
 								</div><!-- .m-filters -->
 
@@ -332,29 +341,37 @@
 				
 				<div class="m-catalog">
 
-					<div class="m-catalog-view">
+					<div class="m-catalog-view m-aside-tabs-content" id="m-tab-sort-content">
 
-						<ul class="m-catalog-view-sort">
-							<li><a class="up active" href="#"><span>По цене</span></a></li>
-							<li><a class="down" href="#"><span>По площади</span></a></li>
-							<li><a class="down" href="#"><span>По дате</span></a></li>
-						</ul>
+						<div class="m-catalog-view-cell">
 
-						<div class="m-catalog-view-show">
-							<span class="m-catalog-view-show-title">Отображать объектов:</span>
-
-							<ul>
-								<li><a class="active" href="#"><span>20</span></a></li>
-								<li><a href="#"><span>40</span></a></li>
-								<li><a href="#"><span>ВСЕ</span></a></li>
+							<ul class="m-catalog-view-sort">
+								<li><a class="up active" href="#"><span>По цене</span></a></li>
+								<li><a class="down" href="#"><span>По площади</span></a></li>
+								<li><a class="down" href="#"><span>По дате</span></a></li>
 							</ul>
-						</div>
 
-						<div class="m-pagination">
-							<a class="m-pagination-arrow m-pagination-prev" href="#"></a>
-							<span class="m-pagination-counter">1/29</span>
-							<a class="m-pagination-arrow m-pagination-next" href="#"></a>
-						</div>
+							<div class="m-catalog-view-show">
+								<span class="m-catalog-view-show-title">Отображать объектов:</span>
+
+								<ul>
+									<li><a class="active" href="#"><span>20</span></a></li>
+									<li><a href="#"><span>40</span></a></li>
+									<li><a href="#"><span>ВСЕ</span></a></li>
+								</ul>
+							</div>
+
+						</div><!-- .m-catalog-view-cell -->
+
+						<div class="m-catalog-view-cell">
+
+							<div class="m-pagination">
+								<a class="m-pagination-arrow m-pagination-prev disabled" href="#"></a>
+								<span class="m-pagination-counter">1/29</span>
+								<a class="m-pagination-arrow m-pagination-next" href="#"></a>
+							</div>						
+	
+						</div><!-- .m-catalog-view-cell -->
 
 					</div><!-- .m-catalog-view -->
 
@@ -366,10 +383,10 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<img src="img/tmp/tile1.jpg" alt="">
+									<a href="#"><img src="img/tmp/tile1.jpg" alt=""></a>
 
 									<div class="m-catalog-tile-id">
-										<a class="m-catalog-flag active" href="#"></a>
+										<a class="m-catalog-fav active" href="#"></a>
 										ID 1455
 									</div>
 
@@ -401,10 +418,10 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<img src="img/tmp/tile2.jpg" alt="">
+									<a href="#"><img src="img/tmp/tile2.jpg" alt=""></a>
 
 									<div class="m-catalog-tile-id">
-										<a class="m-catalog-flag" href="#"></a>
+										<a class="m-catalog-fav" href="#"></a>
 										ID 2503
 									</div>
 
@@ -436,10 +453,10 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<img src="img/tmp/tile3.jpg" alt="">
+									<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>
 
 									<div class="m-catalog-tile-id">
-										<a class="m-catalog-flag" href="#"></a>
+										<a class="m-catalog-fav" href="#"></a>
 										ID 3850
 									</div>
 
@@ -471,10 +488,10 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<img src="img/tmp/tile4.jpg" alt="">
+									<a href="#"><img src="img/tmp/tile4.jpg" alt=""></a>
 
 									<div class="m-catalog-tile-id">
-										<a class="m-catalog-flag" href="#"></a>
+										<a class="m-catalog-fav" href="#"></a>
 										ID 9858
 									</div>
 
@@ -506,10 +523,10 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<img src="img/tmp/tile5.jpg" alt="">
+									<a href="#"><img src="img/tmp/tile5.jpg" alt=""></a>
 
 									<div class="m-catalog-tile-id">
-										<a class="m-catalog-flag" href="#"></a>
+										<a class="m-catalog-fav" href="#"></a>
 										ID 7987
 									</div>
 
@@ -541,10 +558,10 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<img src="img/tmp/tile6.jpg" alt="">
+									<a href="#"><img src="img/tmp/tile6.jpg" alt=""></a>
 
 									<div class="m-catalog-tile-id">
-										<a class="m-catalog-flag" href="#"></a>
+										<a class="m-catalog-fav" href="#"></a>
 										ID 0584
 									</div>
 
@@ -576,10 +593,10 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<img src="img/tmp/tile7.jpg" alt="">
+									<a href="#"><img src="img/tmp/tile7.jpg" alt=""></a>
 
 									<div class="m-catalog-tile-id">
-										<a class="m-catalog-flag active" href="#"></a>
+										<a class="m-catalog-fav active" href="#"></a>
 										ID 1455
 									</div>
 
@@ -611,10 +628,10 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<img src="img/tmp/tile8.jpg" alt="">
+									<a href="#"><img src="img/tmp/tile8.jpg" alt=""></a>
 
 									<div class="m-catalog-tile-id">
-										<a class="m-catalog-flag" href="#"></a>
+										<a class="m-catalog-fav" href="#"></a>
 										ID 2503
 									</div>
 
@@ -646,10 +663,10 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<img src="img/tmp/tile9.jpg" alt="">
+									<a href="#"><img src="img/tmp/tile9.jpg" alt=""></a>
 
 									<div class="m-catalog-tile-id">
-										<a class="m-catalog-flag" href="#"></a>
+										<a class="m-catalog-fav" href="#"></a>
 										ID 3850
 									</div>
 
@@ -678,7 +695,7 @@
 					</div><!-- .m-catalog-tiles -->
 
 					<div class="m-pagination">
-						<a class="m-pagination-arrow m-pagination-prev" href="#"></a>
+						<a class="m-pagination-arrow m-pagination-prev disabled" href="#"></a>
 						<span class="m-pagination-counter">1/29</span>
 						<a class="m-pagination-arrow m-pagination-next" href="#"></a>
 					</div>
