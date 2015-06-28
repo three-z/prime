@@ -68,11 +68,19 @@ header {
 	color: #fff;
 	font-size: 15px;
 	position: fixed;
-	z-index: 50;
+	z-index: 52;
+	.transition;
 
 	@media all and (max-width: @mq-medium) {
 		height: @header-mobile-height;
 		line-height: @header-mobile-height;
+	}
+
+	&.active {
+		@media all and (max-width: @mq-small) {
+			background: #116fb6;
+			border-bottom: 1px solid #4293d1;
+		}
 	}
 }
 
@@ -87,7 +95,7 @@ header {
 	height: 100%;
 	padding: 10px;
 	position: relative;
-	z-index: 2;
+	z-index: 52;
 	cursor: pointer;
 
 	@media all and (max-width: @mq-medium) {
@@ -126,17 +134,6 @@ header {
 
 	} // span
 
-	+ .h-burger-overlay {
-		width: 100%;
-		height: 100%;
-		position: fixed;
-		top: 0;
-		background: rgba(255, 255, 255, 0.8);
-		z-index: 1;
-		.animate-hidden;
-		.transition;
-	}
-
 	&.active {
 
 		span {
@@ -150,10 +147,31 @@ header {
 			&:before { .rotate-it(45deg); }
 			&:after { .rotate-it(-45deg); }
 		}
+		
+		@media all and (max-width: @mq-small) {
+			
 
-		+ .h-burger-overlay { .animate-visible; }
+			~ .h-logo, 
+			~ .h-right .h-phone-link, 
+			~ .h-right .h-ico-nav {
+				.animate-hidden;
+			}
 
-	}
+			~ .h-right .h-phone-number {
+				display: block;
+				text-align: right;
+				padding-right: 27px;
+				font-size: 19px;
+				position: absolute;
+				z-index: 52;
+				right: 0;
+				line-height: @header-mobile-height;
+				.animate-visible;
+			}
+
+		}
+
+	} // &.active
 
 } // .h-burger
 
@@ -342,14 +360,45 @@ nav {
 		top: @header-mobile-height;
 	}
 
+	@media all and (max-width: @mq-small) {
+		// position: absolute;
+		overflow: auto;
+		top: 0;
+		background: rgba(17, 111, 182, 0.95);
+		width: 100%;
+		padding: @header-mobile-height 0 0;
+		border: 0;
+		.move-y(-100%);
+	}
+
 	&.active {
 		.move-x(0);
+
+		@media all and (max-width: @mq-small) {
+			.move-y(0);
+		}
 	}
 
 	ul {
 		font-size: 16px;
 		color: #262626;
 		text-transform: uppercase;
+
+		@media all and (max-width: @mq-small) {
+			color: #fff;
+			text-align: center;
+			font-size: 15px;
+			padding: 25px 0;
+		}
+
+		&.n-mobile {
+			display: none;
+
+			@media all and (max-width: @mq-small) {
+				display: block;
+				background: rgba(0, 0, 0, 0.3);
+			}
+		}
 
 		li {
 			margin-bottom: 34px;
@@ -360,6 +409,10 @@ nav {
 				display: inline-block;
 				line-height: 16px;
 				border-bottom: 1px solid #7e8081;
+
+				@media all and (max-width: @mq-small) {
+					border-bottom-color: #a6bfdc;
+				}
 
 				&:hover { border-bottom-color: transparent; }
 			}
@@ -586,6 +639,7 @@ main {
 		text-align: center;
 		background: #116fb6;
 		color: #fff;
+		.transition;
 
 		&:nth-child(1) {
 			float: left;
@@ -948,7 +1002,7 @@ h1 {
 .m-catalog-tile-pic {
 	position: relative;
 	line-height: 0;
-	margin-bottom: 18px;
+	margin-bottom: 13px;
 	padding-bottom: 64%;
 	overflow: hidden;
 
@@ -1018,13 +1072,21 @@ h1 {
 
 .m-catalog-title {
 	display: inline-block;
-	line-height: 14px;
+	line-height: 20px;
 	color: #363b42;
 	text-transform: uppercase;
-	border-bottom: 1px solid #a2a3a5;
 	margin-bottom: 10px;
 
-	&:hover { border-bottom-color: transparent; }
+	span {
+		border-bottom: 1px solid #a2a3a5;
+	}
+
+	&:hover {
+
+		span {
+			border-bottom-color: transparent;
+		}
+	}
 }
 
 .m-catalog-price {
@@ -1276,6 +1338,7 @@ h1 {
 }
 
 .m-mobile-hidden {
+
 	@media all and (max-width: @mq-small) {
 		display: none;
 	}
@@ -1813,6 +1876,7 @@ h1 {
 		height: 100%;
 		overflow: scroll;
 		overflow-x: hidden;
+		outline: 0;
 
 		@media all and (max-width: @mq-medium) {
 			overflow: visible;
@@ -1859,6 +1923,7 @@ footer {
 
 	@media all and (max-width: @mq-small) {
 		text-align: center;
+		padding: 30px 0 26px;
 	}
 }
 
@@ -1906,7 +1971,7 @@ footer {
 	margin-top: 24px;
 
 	@media all and (max-width: @mq-small) {
-		margin-top: 0;
+		margin: 0 0 22px;
 	}
 
 	li {

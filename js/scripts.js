@@ -19,10 +19,12 @@ $(document).ready(function(){
 	});
 
 	// hamburger-menu
+	var header = $('header');
 	var burgerBtn = $('#h-burger');
 	var burgerNav = $('#h-burger-nav');
 
 	burgerBtn.on('click', function(){
+		header.toggleClass('active');
 		$(this).toggleClass('active');
 		burgerNav.toggleClass('active');
 	});
@@ -75,6 +77,12 @@ $(document).ready(function(){
 			$(this).text('Меньше параметров')
 		} else {
 			$(this).text('Больше параметров')
+		}
+	});
+
+	$(window).on('resize', function(){
+		if ( Modernizr.mq('(min-width: 590px)') ) {
+			hiddenFilters.slideDown();
 		}
 	});
 
