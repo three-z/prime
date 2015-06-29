@@ -82,6 +82,7 @@ $(document).ready(function(){
 
 	$(window).on('resize', function(){
 		if ( Modernizr.mq('(min-width: 590px)') ) {
+			tabContent.slideDown();
 			hiddenFilters.slideDown();
 		}
 	});

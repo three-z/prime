@@ -1,10 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="20" height="20" viewBox="0 0 20 20">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="10" height="10" viewBox="0 0 20 20">
   <defs>
     <style>
-
-      .cls-2 {
-        fill: #2f2c2c;
-      }
+      .cls-2 { fill: #fff; }
     </style>
   </defs>
   <path d="M19.806,17.684 C19.806,17.684 17.684,19.805 17.684,19.805 C17.684,19.805 9.906,12.027 9.906,12.027 C9.906,12.027 2.128,19.805 2.128,19.805 C2.128,19.805 0.007,17.684 0.007,17.684 C0.007,17.684 7.785,9.906 7.785,9.906 C7.785,9.906 0.007,2.128 0.007,2.128 C0.007,2.128 2.128,0.006 2.128,0.006 C2.128,0.006 9.906,7.785 9.906,7.785 C9.906,7.785 17.684,0.006 17.684,0.006 C17.684,0.006 19.806,2.128 19.806,2.128 C19.806,2.128 12.027,9.906 12.027,9.906 C12.027,9.906 19.806,17.684 19.806,17.684 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
