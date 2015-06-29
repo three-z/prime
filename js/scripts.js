@@ -105,4 +105,17 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 
+	// scroll to
+	var scrollBtn = $('.scroll-btn');
+	var root = $('html, body');
+
+	scrollBtn.on('click', function(e){
+		console.log('asda')
+		root.animate({ 
+			scrollTop: $( $(this).attr('href') ).offset().top
+		}, 300);
+
+		e.preventDefault();
+	});
+
 });
