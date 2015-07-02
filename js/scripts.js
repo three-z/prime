@@ -112,9 +112,9 @@ $(document).ready(function(){
 	var root = $('html, body');
 
 	scrollBtn.on('click', function(e){
-		console.log('asda')
+		
 		root.animate({ 
-			scrollTop: $( $(this).attr('href') ).offset().top
+			scrollTop: $( $(this).attr('href') ).offset().top - 100
 		}, 300);
 
 		e.preventDefault();
