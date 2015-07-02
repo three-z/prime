@@ -26,8 +26,12 @@
 	-webkit-transition: @attr @time @type;
 	   -moz-transition: @attr @time @type;
 	    -ms-transition: @attr @time @type;
-	     -o-transition: @attr @time @type;
 	        transition: @attr @time @type;
+}
+
+.transition-delay(@val: 0.1s) {
+	-webkit-transition-delay: @val;
+	        transition-delay: @val;
 }
 
 .gradient (@dir: top, @colorstart: #8ddfff, @colorend: #fff) {

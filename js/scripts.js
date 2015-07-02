@@ -132,27 +132,29 @@ $(document).ready(function(){
 	var galleryThumbsChild = galleryThumbs.find('.thumb');
 	var galleryCounter = $('.gallery-counter');
 
-	galleryMain.on('onSlideChangeStart', function(swiper) {
-		galleryThumbsChild.eq(galleryMain.activeIndex).addClass('active').siblings().removeClass('active');
+	if ( galleryMain.length ) {
+		galleryMain.on('onSlideChangeStart', function(swiper) {
+			galleryThumbsChild.eq(galleryMain.activeIndex).addClass('active').siblings().removeClass('active');
 
-		galleryThumbs.stop().animate({ 
-			scrollTop: galleryThumbsChild.eq(galleryMain.activeIndex).position().top - 111
-		}, 300);
+			galleryThumbs.stop().animate({ 
+				scrollTop: galleryThumbsChild.eq(galleryMain.activeIndex).position().top - 111
+			}, 300);
+
+			galleryNum();
+			
+		});
+
+		galleryThumbsChild.on('click', function(){
+			var clicked = $(this).index();
+			galleryMain.slideTo( clicked );
+		});
+
+		function galleryNum() {
+			galleryCounter.text( (galleryMain.activeIndex + 1) + '/' + galleryMain.slides.length )
+		}
 
 		galleryNum();
-		
-	});
-
-	galleryThumbsChild.on('click', function(){
-		var clicked = $(this).index();
-		galleryMain.slideTo( clicked );
-	});
-
-	function galleryNum() {
-		galleryCounter.text( (galleryMain.activeIndex + 1) + '/' + galleryMain.slides.length )
 	}
-
-	galleryNum();
 
 	// detail page spoilers
 	var sectionTitle = $('section').find('h2');
@@ -178,5 +180,33 @@ $(document).ready(function(){
 			sectionContent.hide();
 		}
 	});
+
+	// popup windows
+	$('.mfp-link').magnificPopup({
+		removalDelay: 300,
+		midClick: true,
+		mainClass: 'mfp-anim',
+		overflowY: 'scroll',
+		fixedContentPos: false
+	});
+
+	// reviews slider
+	var reviewsSlider = new Swiper('.a-reviews-slider', {
+		speed: 500,
+		loop: true,
+		prevButton: '.a-reviews-nav-prev',
+		nextButton: '.a-reviews-nav-next',
+
+		onInit: reviewsAutoHeight
+	});
+
+	reviewsSlider.on('onSlideChangeStart', reviewsAutoHeight);
+
+	function reviewsAutoHeight() {
+		var activeH = $('.swiper-slide-active .a-review').height();
+		$('.a-reviews-slider').css('height', activeH);
+	}
+
+	$(window).on('resize', reviewsAutoHeight);
 
 });
