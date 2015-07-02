@@ -84,6 +84,8 @@ $(document).ready(function(){
 		if ( Modernizr.mq('(min-width: 590px)') ) {
 			tabContent.slideDown();
 			hiddenFilters.slideDown();
+		} else {
+			tabContent.css('display', '');
 		}
 	});
 
