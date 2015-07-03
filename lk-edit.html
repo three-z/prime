@@ -1,0 +1,308 @@
+<!DOCTYPE html> 
+<html lang="ru">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+
+	<title>Личные данные — Личный кабинет — Prime</title>
+
+	<link rel="shortcut icon" href="favicon.png">
+	
+	<!-- Reset styles -->
+	<link rel="stylesheet" href="css/normalize.css"> 
+	<link rel="stylesheet" href="css/reset.css"> 
+
+	<!-- Plugins' styles -->
+	<link rel="stylesheet" href="js/vendor/swiper/swiper.min.css">
+	<link rel="stylesheet" href="js/vendor/magnific-popup/magnific-popup.min.css">
+
+	<!-- Main styles -->
+	<link rel="stylesheet" href="template_styles.css">
+
+	<!--[if lt IE 10]><script src="js/IE9.js"></script><![endif]-->
+	
+	<!-- Scripts -->
+	<script src="js/modernizr.custom.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/fastclick.min.js"></script>
+	<script src="js/vendor/jquery-placeholder/jquery.placeholder.min.js"></script>
+	<script src="js/vendor/jquery-maskedinput/jquery.maskedinput.min.js"></script>
+	<script src="js/vendor/nano-scroller/jquery.nanoscroller.min.js"></script>
+	<script src="js/vendor/swiper/swiper.jquery.min.js"></script>
+	<script src="js/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+	<script src="js/vendor/select-or-die/selectordie.min.js"></script>
+	<script src="js/vendor/jquery-validation/jquery.validate.min.js"></script>
+	<script src="js/vendor/jquery-validation/localization/messages_ru.js"></script>
+	<script src="js/scripts-dist.js"></script>
+</head>
+
+<body>
+
+	<div class="wrapper">
+
+		<header>
+			
+			<div class="h-burger" id="h-burger"><span></span></div>
+
+			<a class="h-logo" href="/"></a>
+
+			<ul class="h-categories">
+				<li><a href="#"><span>Городская <br> недвижимость</span></a></li>
+				<li><a href="#"><span>Загородная <br> недвижимость</span></a></li>
+				<li><a href="#"><span>Коммерческая <br> недвижимость</span></a></li>
+			</ul>
+
+			<div class="h-right">
+				
+				<div class="h-phone">
+					<div class="h-phone-number">+7 (495) 123-45-67</div>
+					<a class="h-phone-link" href="#">Заказать обратный звонок</a>
+				</div>
+
+				<div class="h-ico-nav">
+					<ul>
+						<li><a class="h-ico-fav" href="#"><span>2</span></a></li>
+						<li><a class="h-ico-user" href="#"></a></li>
+					</ul>
+				</div>
+
+			</div><!-- .h-right -->
+
+		</header>
+
+		<nav id="h-burger-nav">
+
+			<ul class="n-mobile">
+				<li><a href="#">Город</a></li>
+				<li><a href="#">Загород</a></li>
+				<li><a href="#">Коммерческая</a></li>
+			</ul>
+
+			<ul>
+				<li><a href="#">О компании</a></li>
+				<li><a href="#">Покупка</a></li>
+				<li><a href="#">Аренда</a></li>
+				<li><a href="#">Как продать</a></li>
+				<li><a href="#">Спецпредложения</a></li>
+				<li><a href="#">Срочный выкуп</a></li>
+				<li><a href="#">Контакты</a></li>
+			</ul>
+
+		</nav>
+
+		<main class="aside-yes">
+
+			<div class="m-content">
+
+				<div class="m-aside">
+					
+					<div class="m-aside-nav">
+
+						<h2 class="m-aside-nav-title">
+							Личный кабинет
+
+							<div class="m-burger" id="m-burger"><span></span></div>
+						</h2>
+
+						<ul id="m-burger-nav">
+							<li>
+								<a href="#"><span>Общая информация</span></a>
+								<ul>
+									<li><a class="active" href="#"><span>личные данные</span></a></li>
+									<li><a href="#"><span>контактные данные</span></a></li>
+									<li><a href="#"><span>безопасность</span></a></li>
+								</ul>
+							</li>
+							<li><a class="fav" href="#"><span>Избранные объекты</span></a></li>
+						</ul>
+
+					</div><!-- .m-aside-nav -->
+					
+				</div><!-- .m-aside -->
+
+				<div class="m-content-lk">
+					<h2>Личные данные</h2>
+
+					<form class="validate-form">
+						<table class="m-content-lk-edit">
+							<tr>
+								<td>
+									<div class="lk-input-row">
+										<label for="field-1" class="req">Фамилия</label>
+										<input type="text" id="field-1" value="Щебет" required>
+									</div><!-- .lk-input-row -->
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="lk-input-row">
+										<label for="field-2" class="req">Имя</label>
+										<input type="text" id="field-2" value="Дмитрий" required>
+									</div><!-- .lk-input-row -->
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="lk-input-row">
+										<label for="field-3" class="req">Отчество</label>
+										<input type="text" id="field-3" value="Вадимович" required>
+									</div><!-- .lk-input-row -->
+								</td>
+							</tr>
+	
+							<tr>
+								<td>
+	
+									<div class="lk-input-group">
+										<div class="lk-input-row">
+											<label>Пол</label>
+	
+											<div class="lk-input-row-select">
+												<select class="ignore">
+													<option value="1">Мужской</option>
+													<option value="1">Женский</option>
+												</select>
+											</div><!-- .lk-input-row-select -->
+											
+										</div><!-- .lk-input-row -->
+										<div class="lk-input-row">
+											<label>Дата рождения</label>
+	
+											<div class="lk-input-row-select">
+												<select class="ignore">
+													<option value="1">Январь</option>
+													<option value="2">Февраль</option>
+													<option value="3" selected>Март</option>
+													<option value="4">Апрель</option>
+													<option value="5">Май</option>
+													<option value="6">Июнь</option>
+													<option value="7">Июль</option>
+													<option value="8">Август</option>
+													<option value="9">Сентябрь</option>
+													<option value="10">Октябрь</option>
+													<option value="11">Ноябрь</option>
+													<option value="12">Декабрь</option>
+												</select>
+	
+												<select class="ignore">
+													<option value="1">1</option>
+													<option value="2" selected>2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
+													<option value="10">10</option>
+													<option value="11">1</option>
+													<option value="12">12</option>
+												</select>
+	
+												<select class="ignore">
+													<option value="1">1984</option>
+													<option value="2" selected>1985</option>
+													<option value="3">1986</option>
+													<option value="4">1987</option>
+													<option value="5">1988</option>
+													<option value="6">1989</option>
+													<option value="7">1990</option>
+												</select>
+	
+												<div class="lk-input-row-note">
+													Эта информация требуется исключительно для нашего внутреннего анализа. Она никогда не будет передана третьим лицам
+												</div><!-- .lk-input-row-note -->
+	
+											</div><!-- .lk-input-row-select -->
+											
+										</div><!-- .lk-input-row -->
+									</div><!-- .lk-input-group -->
+									
+								</td>
+							</tr>
+	
+							<tr>
+								<td>
+									<div class="lk-input-row">
+										<label for="field-4" class="req">Должность</label>
+										<input type="text" id="field-4" value="Генеральный директор" required>
+									</div><!-- .lk-input-row -->
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="lk-input-row">
+										<label for="field-5" class="req">Компания</label>
+										<input type="text" id="field-5" required>
+									</div><!-- .lk-input-row -->
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="lk-input-row">
+										<input type="submit" value="Сохранить изменения">
+									</div><!-- .lk-input-row -->
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div><!-- .m-content-lk -->
+
+			</div><!-- .m-content -->
+
+			<footer>
+				
+				<div class="f-left">
+
+					<ul class="f-nav">
+						<li><a href="#">О компании</a></li>
+						<li><a href="#">Покупка</a></li>
+						<li><a href="#">Аренда</a></li>
+						<li><a href="#">Как продать</a></li>
+						<li><a href="#">Контакты</a></li>
+					</ul>
+
+					<ul class="f-nav f-nav-light">
+						<li><a href="#">Городская недвижимость</a></li>
+						<li><a href="#">Загородная недвижимость</a></li>
+						<li><a href="#">Коммерческая недвижимость</a></li>
+					</ul>
+
+					<ul class="f-social">
+						<li><a class="icon-facebook" href="#"></a></li>
+						<li><a class="icon-twitter" href="#"></a></li>
+						<li><a class="icon-vkontakte" href="#"></a></li>
+						<li><a class="icon-google-plus" href="#"></a></li>
+						<li><a class="icon-instagram" href="#"></a></li>
+					</ul>
+
+				</div><!-- .f-left -->
+
+				<div class="f-right">
+
+					<div class="f-copyright">
+						&copy; Prime, 2015
+					</div>
+
+					<div class="f-bitrix">
+						<a href="#"><img src="img/tmp/composite.png" alt=""></a>
+					</div>
+
+					<div class="f-madeby">
+						<a href="#">Разработка сайта</a> — Веб-студия «Факт»
+					</div>
+
+				</div><!-- .f-right -->
+
+			</footer>
+			
+		</main>
+
+	</div><!-- .wrapper -->
+
+</body>
+
+</html>

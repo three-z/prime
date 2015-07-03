@@ -36,7 +36,7 @@
 	<script src="js/vendor/select-or-die/selectordie.min.js"></script>
 	<script src="js/vendor/jquery-validation/jquery.validate.min.js"></script>
 	<script src="js/vendor/jquery-validation/localization/messages_ru.js"></script>
-	<script src="js/scripts-dist.js"></script>
+	<script src="js/scripts.js"></script>
 
 	
 	
@@ -467,6 +467,23 @@
 
 		}
 		google.maps.event.addDomListener(window, 'load', initialize);
+
+		// map size
+		var mapBlock = $('#m-catalog-map');
+
+		function mapHeight() {
+			var elemsH = $('header').outerHeight(true) + $('footer').outerHeight(true) + $('h1').outerHeight(true) + $('.m-catalog-map p').outerHeight(true) + $('.m-header').outerHeight(true);
+
+			if ( Modernizr.mq('(min-width: 960px)') ) {
+				mapBlock.css('height',  $(window).height() - elemsH);
+			} else {
+				mapBlock.css('height',  '');
+			}
+		}
+
+		mapHeight();
+
+		$(window).on('resize', mapHeight);
 	</script>
 
 </body>
