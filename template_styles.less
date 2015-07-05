@@ -1686,7 +1686,13 @@ main {
 			cursor: pointer;
 
 			span {
-				border-bottom: 1px dashed;
+				display: inline-block;
+				pointer-events: none;
+
+				u {
+					text-decoration: none;
+					border-bottom: 1px dashed;
+				}
 			}
 		}
 
@@ -1696,7 +1702,9 @@ main {
 				color: #4d4d4d;
 
 				span {
-					border-bottom-color: transparent;
+					u {
+						border-bottom-color: transparent;
+					}
 				}
 			}
 		}
@@ -3299,6 +3307,7 @@ h1, h2 {
 
 			span {
 				display: inline-block;
+				pointer-events: none;
 
 				u {
 					border-bottom: 1px dashed;
@@ -3424,6 +3433,7 @@ h1, h2 {
 
 			span {
 				display: inline-block;
+				pointer-events: none;
 
 				u {
 					text-decoration: none;
@@ -4723,6 +4733,10 @@ button.mfp-close {
 	} // .social-icons
 
 } // .social-icons
+
+.wrapper input, textarea, button {
+	-webkit-appearance: none;
+}
 
 // Glyph icons
 .icon-dollar:before { content: '\e800'; }
