@@ -3298,7 +3298,12 @@ h1, h2 {
 			line-height: 16px;
 
 			span {
-				border-bottom: 1px dashed;
+				display: inline-block;
+
+				u {
+					border-bottom: 1px dashed;
+					text-decoration: none;
+				}
 			}
 
 			b {
@@ -3344,7 +3349,10 @@ h1, h2 {
 				cursor: default;
 
 				span {
-					border-bottom-color: transparent;
+
+					u {
+						border-bottom-color: transparent;
+					}
 				}
 			}
 
@@ -3415,7 +3423,12 @@ h1, h2 {
 			position: relative;
 
 			span {
-				border-bottom: 1px dashed;
+				display: inline-block;
+
+				u {
+					text-decoration: none;
+					border-bottom: 1px dashed;
+				}
 			}
 
 			&:before, &:after {
@@ -3447,7 +3460,9 @@ h1, h2 {
 				}
 
 				span {
-					border-bottom-color: transparent;
+					u {
+						border-bottom-color: transparent;
+					}
 				}
 			}
 
