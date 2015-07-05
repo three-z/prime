@@ -2083,6 +2083,7 @@ main {
 	background-position: 50% 0;
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-color: @color-text;
 	margin-bottom: 66px;
 
 	@media all and (max-width: @mq-small) {
@@ -3664,9 +3665,7 @@ h1, h2 {
 .nano {
 	overflow: hidden;
 
-	@media all and (max-width: @mq-medium) {
-		overflow: visible;
-	}
+	
 
 	.nano-content {
 		height: 100%;
@@ -3674,11 +3673,7 @@ h1, h2 {
 		overflow-x: hidden;
 		outline: 0;
 
-		@media all and (max-width: @mq-medium) {
-			overflow: visible;
-			overflow-x: visible;
-			margin-right: 0 !important;
-		}
+	
 
 		&::-webkit-scrollbar { display: none; }
 	}
@@ -3703,6 +3698,27 @@ h1, h2 {
 	}
 
 } // .nano
+
+:not('gallery-thumbs') {
+	.nano {
+
+		@media all and (max-width: @mq-medium) {
+			overflow: visible;
+		}
+
+		.nano-content {
+
+			@media all and (max-width: @mq-medium) {
+				overflow: visible;
+				overflow-x: visible;
+				margin-right: 0 !important;
+			}
+
+		}
+
+	} // .nano
+
+}
 
 .m-aside-detail {
 	.nano {
@@ -3850,8 +3866,13 @@ footer {
 .swiper-container{ height: 100%; }
 
 .swiper-slide {
+	.border-box;
 	background-size: cover;
 	background-position: 50% 50%;
+
+	&.video {
+		padding-bottom: 55px;
+	}
 }
 
 .gallery {
@@ -4054,6 +4075,7 @@ footer {
 	height: 100%;
 	position: relative;
 	z-index: 0;
+	background-color: #4d4d4d;
 }
 
 .gallery-main-pic {
@@ -4082,9 +4104,10 @@ footer {
 .gallery-thumbs {
 	.border-box;
 	height: 100%;
-	padding: 10px;
+	// padding: 10px;
 	background: #ebebeb;
-	overflow: auto;
+	position: relative;
+	// overflow: auto;
 
 	.thumb {
 		height: 104px;
@@ -4093,11 +4116,45 @@ footer {
 		background-size: cover;
 		background-position: 50% 50%;
 		cursor: pointer;
+		position: relative;
 		.transition;
 
 		&.active {
 			opacity: 0.3;
 		}
+
+		&.video {
+			&:before {
+				.blocky;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: url('@{img-path}/ico/play.svg') 50% 50% no-repeat;
+				background-size: 36px auto;
+			}
+		}
+	}
+
+	.nano-content {
+		.border-box;
+		padding: 10px 26px 10px 10px;
+	}
+
+	.nano-pane {
+		background: #c6c6c6;
+		position: absolute;
+		width: 16px;
+		right: 0;
+		top: 0;
+		bottom: 0;
+
+		.nano-slider {
+			background: #a8a8a8;
+			position: relative;
+		}
+
 	}
 
 } // .gallery-thumbs
