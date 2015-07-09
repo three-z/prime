@@ -36,7 +36,7 @@
 	<script src="js/vendor/select-or-die/selectordie.min.js"></script>
 	<script src="js/vendor/jquery-validation/jquery.validate.min.js"></script>
 	<script src="js/vendor/jquery-validation/localization/messages_ru.js"></script>
-	<script src="js/scripts-dist.js"></script>
+	<script src="js/scripts.js"></script>
 </head>
 
 <body>
@@ -149,7 +149,7 @@
 									<div class="m-filters-row m-mobile-hidden">
 
 										<div class="m-filter-toggle m-filter-toggle-no">
-											<input type="radio" id="filter-category-fast" name="filter-category" checked>
+											<input type="radio" id="filter-category-fast" name="filter-category">
 											<label for="filter-category-fast"><span><u>Срочный выкуп</u></span></label>
 
 											<input type="radio" id="filter-category-spec" name="filter-category">
@@ -177,7 +177,7 @@
 										<h3>Стоимость:</h3>
 
 										<div class="m-filter-toggle">
-											<input type="radio" id="filter-price-obj" name="filter-price" checked>
+											<input type="radio" id="filter-price-obj" name="filter-price">
 											<label for="filter-price-obj"><span><u>За объект</u></span></label>
 
 											<span class="m-filter-toggle-trigger"></span>
@@ -186,12 +186,37 @@
 											<label for="filter-price-metr"><span><u>За метр кв<b>адратный</b><b class="dot">.</b></u></span></label>
 										</div>
 
-										<select>
-											<option value="1">$ 1 млн. -  $ 4 млн.</option>
-											<option value="2">$ 5 млн. -  $ 9 млн.</option>
-											<option value="3">$ 10 млн. -  $ 14 млн.</option>
-											<option value="4">$ 15 млн. -  $ 20 млн.</option>
-										</select>
+										<div class="m-filter-range m-filter-toggle-content">
+
+											<select class="range range-from">
+												<option value="0" selected>$ 0 млн.</option>
+												<option value="1">$ 1 млн.</option>
+												<option value="2">$ 5 млн.</option>
+												<option value="3">$ 10 млн.</option>
+												<option value="4">$ 15 млн.</option>
+												<option value="5">$ 20 млн.</option>
+												<option value="6">$ 25 млн.</option>
+												<option value="7">$ 30 млн.</option>
+											</select>
+
+											<select class="range range-to">
+												<option value="0">$ 0 млн.</option>
+												<option value="1">$ 1 млн.</option>
+												<option value="2">$ 5 млн.</option>
+												<option value="3">$ 10 млн.</option>
+												<option value="4">$ 15 млн.</option>
+												<option value="5">$ 20 млн.</option>
+												<option value="6">$ 25 млн.</option>
+												<option value="7" selected>$ 30 млн.</option>
+											</select>
+
+											<div class="m-filter-range-field">
+												<span class="from">0</span> - 
+												<span class="to">30</span>
+											</div>
+
+										</div><!-- .m-filter-range -->
+
 									</div>
 
 									<div class="m-filters-row">
@@ -202,11 +227,42 @@
 
 											<span class="m-filter-toggle-trigger"></span>
 
-											<input type="radio" id="filter-size-bed" name="filter-size" checked>
+											<input type="radio" id="filter-size-bed" name="filter-size">
 											<label for="filter-size-bed"><span><u>Количество спален</u></span></label>
 										</div>
 
-										<div class="m-filter-size">
+										<div class="m-filter-range m-filter-toggle-content">
+
+											<select class="range range-from">
+												<option value="0" selected>100 кв. м.</option>
+												<option value="1">200 кв. м.</option>
+												<option value="2">300 кв. м.</option>
+												<option value="3">400 кв. м.</option>
+												<option value="4">500 кв. м.</option>
+												<option value="5">600 кв. м.</option>
+												<option value="6">700 кв. м.</option>
+												<option value="7">800 кв. м.</option>
+											</select>
+
+											<select class="range range-to">
+												<option value="0">100 кв. м.</option>
+												<option value="1">200 кв. м.</option>
+												<option value="2">300 кв. м.</option>
+												<option value="3">400 кв. м.</option>
+												<option value="4">500 кв. м.</option>
+												<option value="5">600 кв. м.</option>
+												<option value="6">700 кв. м.</option>
+												<option value="7" selected>800 кв. м.</option>
+											</select>
+
+											<div class="m-filter-range-field">
+												<span class="from">0</span> - 
+												<span class="to">30</span>
+											</div>
+
+										</div><!-- .m-filter-range -->
+
+										<div class="m-filter-size m-filter-toggle-content">
 											<input type="checkbox" id="bed-1" checked>
 											<label for="bed-1">1</label>
 
@@ -388,7 +444,22 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<a href="#"><img src="img/tmp/tile1.jpg" alt=""></a>
+									<div class="tile-slider swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile1.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile2.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+										</div><!-- .swiper-wrapper -->
+									</div><!-- .swiper-container -->
+
+									<div class="tile-slider-nav tile-slider-prev"></div>
+									<div class="tile-slider-nav tile-slider-next"></div>
 
 									<div class="m-catalog-tile-id">
 										<a class="m-catalog-fav active" href="#"></a>
@@ -423,7 +494,22 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<a href="#"><img src="img/tmp/tile2.jpg" alt=""></a>
+									<div class="tile-slider swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile2.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile1.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+										</div><!-- .swiper-wrapper -->
+									</div><!-- .swiper-container -->
+
+									<div class="tile-slider-nav tile-slider-prev"></div>
+									<div class="tile-slider-nav tile-slider-next"></div>
 
 									<div class="m-catalog-tile-id">
 										<a class="m-catalog-fav" href="#"></a>
@@ -458,7 +544,22 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>
+									<div class="tile-slider swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile1.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile2.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+										</div><!-- .swiper-wrapper -->
+									</div><!-- .swiper-container -->
+
+									<div class="tile-slider-nav tile-slider-prev"></div>
+									<div class="tile-slider-nav tile-slider-next"></div>
 
 									<div class="m-catalog-tile-id">
 										<a class="m-catalog-fav" href="#"></a>
@@ -493,7 +594,22 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<a href="#"><img src="img/tmp/tile4.jpg" alt=""></a>
+									<div class="tile-slider swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile4.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile5.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile6.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+										</div><!-- .swiper-wrapper -->
+									</div><!-- .swiper-container -->
+
+									<div class="tile-slider-nav tile-slider-prev"></div>
+									<div class="tile-slider-nav tile-slider-next"></div>
 
 									<div class="m-catalog-tile-id">
 										<a class="m-catalog-fav" href="#"></a>
@@ -528,7 +644,22 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<a href="#"><img src="img/tmp/tile5.jpg" alt=""></a>
+									<div class="tile-slider swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile5.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile4.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile6.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+										</div><!-- .swiper-wrapper -->
+									</div><!-- .swiper-container -->
+
+									<div class="tile-slider-nav tile-slider-prev"></div>
+									<div class="tile-slider-nav tile-slider-next"></div>
 
 									<div class="m-catalog-tile-id">
 										<a class="m-catalog-fav" href="#"></a>
@@ -563,7 +694,22 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<a href="#"><img src="img/tmp/tile6.jpg" alt=""></a>
+									<div class="tile-slider swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile6.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile5.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile4.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+										</div><!-- .swiper-wrapper -->
+									</div><!-- .swiper-container -->
+
+									<div class="tile-slider-nav tile-slider-prev"></div>
+									<div class="tile-slider-nav tile-slider-next"></div>
 
 									<div class="m-catalog-tile-id">
 										<a class="m-catalog-fav" href="#"></a>
@@ -598,7 +744,22 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<a href="#"><img src="img/tmp/tile7.jpg" alt=""></a>
+									<div class="tile-slider swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile7.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile8.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile9.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+										</div><!-- .swiper-wrapper -->
+									</div><!-- .swiper-container -->
+
+									<div class="tile-slider-nav tile-slider-prev"></div>
+									<div class="tile-slider-nav tile-slider-next"></div>
 
 									<div class="m-catalog-tile-id">
 										<a class="m-catalog-fav active" href="#"></a>
@@ -633,7 +794,22 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<a href="#"><img src="img/tmp/tile8.jpg" alt=""></a>
+									<div class="tile-slider swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile8.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile7.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile9.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+										</div><!-- .swiper-wrapper -->
+									</div><!-- .swiper-container -->
+
+									<div class="tile-slider-nav tile-slider-prev"></div>
+									<div class="tile-slider-nav tile-slider-next"></div>
 
 									<div class="m-catalog-tile-id">
 										<a class="m-catalog-fav" href="#"></a>
@@ -668,7 +844,22 @@
 
 								<div class="m-catalog-tile-pic">
 
-									<a href="#"><img src="img/tmp/tile9.jpg" alt=""></a>
+									<div class="tile-slider swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile9.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile8.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+											<div class="swiper-slide">
+												<a href="#"><img src="img/tmp/tile7.jpg" alt=""></a>
+											</div><!-- .swiper-slide -->
+										</div><!-- .swiper-wrapper -->
+									</div><!-- .swiper-container -->
+
+									<div class="tile-slider-nav tile-slider-prev"></div>
+									<div class="tile-slider-nav tile-slider-next"></div>
 
 									<div class="m-catalog-tile-id">
 										<a class="m-catalog-fav" href="#"></a>
