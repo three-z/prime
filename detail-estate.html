@@ -4,7 +4,7 @@
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<meta name="format-detection" content="telephone=no">
 
 	<title>Деталка (жилой комплекс) — Prime</title>
@@ -38,7 +38,9 @@
 	<script src="js/vendor/select-or-die/selectordie.min.js"></script>
 	<script src="js/vendor/jquery-validation/jquery.validate.min.js"></script>
 	<script src="js/vendor/jquery-validation/localization/messages_ru.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="js/vendor/switchy/switchy.js"></script>
+<script src="js/jquery.event.drag.js"></script>
+<script src="js/scripts.js"></script>
 </head>
 
 <body>
@@ -52,9 +54,9 @@
 			<a class="h-logo" href="/"></a>
 
 			<ul class="h-categories">
-				<li><a href="#"><span>Городская <br> недвижимость</span></a></li>
-				<li><a href="#"><span>Загородная <br> недвижимость</span></a></li>
-				<li><a href="#"><span>Коммерческая <br> недвижимость</span></a></li>
+				<li><a href="#"><span><u>Городская</u><u>недвижимость</u></span></a></li>
+				<li><a href="#"><span><u>Загородная</u><u>недвижимость</u></span></a></li>
+				<li><a href="#"><span><u>Коммерческая</u><u>недвижимость</u></span></a></li>
 			</ul>
 
 			<div class="h-right">
@@ -173,7 +175,7 @@
 
 							<div class="m-aside-content-wrapper">
 
-								<h2 class="m-aside-content-heading">Тверско-Ямские небоскребы</h2>
+								<h2 class="m-aside-content-heading m-aside-content-heading--nopadding">Тверско-Ямские небоскребы</h2>
 								
 								<div class="m-filters">
 
@@ -243,10 +245,15 @@
 
 										<div class="m-filters-row">
 											<div class="m-filter-toggle">
-												<input type="radio" id="filter-sale-sell" name="filter-sale" checked>
+												<input type="radio" id="filter-sale-sell" name="filter-sale">
 												<label for="filter-sale-sell"><span><u>Продажа</u></span></label>
 
-												<span class="m-filter-toggle-trigger"></span>
+												<!-- <span class="m-filter-toggle-trigger"><i></i></span> -->
+												<select class="m-filter-toggle-switchy">
+													<option value="left">left</option>
+													<option value="" selected="selected"></option>
+													<option value="right">right</option>
+												</select>
 
 												<input type="radio" id="filter-sale-rent" name="filter-sale">
 												<label for="filter-sale-rent"><span><u>Аренда</u></span></label>
@@ -259,21 +266,50 @@
 												<h3>Стоимость:</h3>
 
 												<div class="m-filter-toggle">
-													<input type="radio" id="filter-price-obj" name="filter-price" checked>
+													<input type="radio" id="filter-price-obj" name="filter-price">
 													<label for="filter-price-obj"><span><u>За объект</u></span></label>
 
-													<span class="m-filter-toggle-trigger"></span>
+													<!-- <span class="m-filter-toggle-trigger"><i></i></span> -->
+													<select class="m-filter-toggle-switchy">
+														<option value="left">left</option>
+														<option value="" selected="selected"></option>
+														<option value="right">right</option>
+													</select>
 
 													<input type="radio" id="filter-price-metr" name="filter-price">
 													<label for="filter-price-metr"><span><u>За метр кв<b>адратный</b><b class="dot">.</b></u></span></label>
 												</div>
 
-												<select>
-													<option value="1">$ 1 млн. -  $ 4 млн.</option>
-													<option value="2">$ 5 млн. -  $ 9 млн.</option>
-													<option value="3">$ 10 млн. -  $ 14 млн.</option>
-													<option value="4">$ 15 млн. -  $ 20 млн.</option>
-												</select>
+												<div class="m-filter-range m-filter-toggle-content">
+
+													<select class="range range-from">
+														<option value="0" selected>$ 0 млн.</option>
+														<option value="1">$ 1 млн.</option>
+														<option value="2">$ 5 млн.</option>
+														<option value="3">$ 10 млн.</option>
+														<option value="4">$ 15 млн.</option>
+														<option value="5">$ 20 млн.</option>
+														<option value="6">$ 25 млн.</option>
+														<option value="7">$ 30 млн.</option>
+													</select>
+
+													<select class="range range-to">
+														<option value="0">$ 0 млн.</option>
+														<option value="1">$ 1 млн.</option>
+														<option value="2">$ 5 млн.</option>
+														<option value="3">$ 10 млн.</option>
+														<option value="4">$ 15 млн.</option>
+														<option value="5">$ 20 млн.</option>
+														<option value="6">$ 25 млн.</option>
+														<option value="7" selected>$ 30 млн.</option>
+													</select>
+
+													<div class="m-filter-range-field">
+														<span class="from">0</span> - 
+														<span class="to">30</span>
+													</div>
+
+												</div><!-- .m-filter-range -->
 											</div>
 
 											<div class="m-filters-row m-filters-row-half">
@@ -284,13 +320,49 @@
 													<input type="radio" id="filter-size-square" name="filter-size">
 													<label for="filter-size-square"><span><u>Площадь</u></span></label>
 
-													<span class="m-filter-toggle-trigger"></span>
+													<!-- <span class="m-filter-toggle-trigger"><i></i></span> -->
+													<select class="m-filter-toggle-switchy">
+														<option value="left">left</option>
+														<option value="" selected="selected"></option>
+														<option value="right">right</option>
+													</select>
 
-													<input type="radio" id="filter-size-bed" name="filter-size" checked>
+													<input type="radio" id="filter-size-bed" name="filter-size">
 													<label for="filter-size-bed"><span><u>Количество спален</u></span></label>
 												</div>
 
-												<div class="m-filter-size">
+												<div class="m-filter-range m-filter-toggle-content">
+
+													<select class="range range-from">
+														<option value="0" selected>100 кв. м.</option>
+														<option value="1">200 кв. м.</option>
+														<option value="2">300 кв. м.</option>
+														<option value="3">400 кв. м.</option>
+														<option value="4">500 кв. м.</option>
+														<option value="5">600 кв. м.</option>
+														<option value="6">700 кв. м.</option>
+														<option value="7">800 кв. м.</option>
+													</select>
+
+													<select class="range range-to">
+														<option value="0">100 кв. м.</option>
+														<option value="1">200 кв. м.</option>
+														<option value="2">300 кв. м.</option>
+														<option value="3">400 кв. м.</option>
+														<option value="4">500 кв. м.</option>
+														<option value="5">600 кв. м.</option>
+														<option value="6">700 кв. м.</option>
+														<option value="7" selected>800 кв. м.</option>
+													</select>
+
+													<div class="m-filter-range-field">
+														<span class="from">0</span> - 
+														<span class="to">30</span>
+													</div>
+
+												</div><!-- .m-filter-range -->
+
+												<div class="m-filter-size m-filter-toggle-content">
 													<input type="checkbox" id="bed-1" checked>
 													<label for="bed-1">1</label>
 
@@ -371,7 +443,12 @@
 							<input type="radio" id="filter-sale-sell-2" name="filter-sale-2" checked>
 							<label for="filter-sale-sell-2"><span><u>Продажа</u></span></label>
 
-							<span class="m-filter-toggle-trigger"></span>
+							<!-- <span class="m-filter-toggle-trigger"><i></i></span> -->
+							<select class="m-filter-toggle-switchy">
+								<option value="left">left</option>
+								<option value="" selected="selected"></option>
+								<option value="right">right</option>
+							</select>
 
 							<input type="radio" id="filter-sale-rent-2" name="filter-sale-2">
 							<label for="filter-sale-rent-2"><span><u>Аренда</u></span></label>
@@ -387,7 +464,12 @@
 								<input type="radio" id="filter-price-obj-2" name="filter-price-2" checked>
 								<label for="filter-price-obj-2"><span><u>За объект</u></span></label>
 
-								<span class="m-filter-toggle-trigger"></span>
+								<!-- <span class="m-filter-toggle-trigger"><i></i></span> -->
+								<select class="m-filter-toggle-switchy">
+									<option value="left">left</option>
+									<option value="" selected="selected"></option>
+									<option value="right">right</option>
+								</select>
 
 								<input type="radio" id="filter-price-metr-2" name="filter-price-2">
 								<label for="filter-price-metr-2"><span><u>За метр кв<b>адратный</b><b class="dot">.</b></u></span></label>
@@ -409,7 +491,12 @@
 								<input type="radio" id="filter-size-square-2" name="filter-size-2">
 								<label for="filter-size-square-2"><span><u>Площадь</u></span></label>
 
-								<span class="m-filter-toggle-trigger"></span>
+								<!-- <span class="m-filter-toggle-trigger"><i></i></span> -->
+								<select class="m-filter-toggle-switchy">
+									<option value="left">left</option>
+									<option value="" selected="selected"></option>
+									<option value="right">right</option>
+								</select>
 
 								<input type="radio" id="filter-size-bed-2" name="filter-size-2" checked>
 								<label for="filter-size-bed-2"><span><u>Количество спален</u></span></label>
@@ -806,6 +893,63 @@
 					</div>
 					
 				</div><!-- .m-catalog -->
+
+				<div class="m-content-section">
+
+					<article>
+
+						<section>
+							<h2><span>описание жилого комплекса</span></h2>
+							<div class="s-content">
+								<p>Идейные соображения высшего порядка, а также укрепление и развитие структуры способствует подготовки и реализации системы обучения кадров, соответствует насущным потребностям. Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание форм развития. Разнообразный и богатый опыт начало повседневной работы по формированию позиции способствует подготовки и реализации модели развития. Идейные соображения высшего порядка, а также укрепление и развитие структуры способствует подготовки и реализации системы обучения кадров, соответствует насущным потребностям. Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание форм развития. Разнообразный и богатый опыт начало повседневной работы по формированию позиции способствует подготовки и реализации модели развития.</p>
+							</div>
+						</section>
+
+						<section>
+							<h2><span>расположение</span></h2>
+						
+							<div class="s-content">
+								<p>Чистые пруды ул., д.21, м. Автово. 15 минут от станции метро. Разнообразный и богатый опыт начало повседневной работы по формированию позиции способствует подготовки и реализации модели развития.</p>
+							
+								<div class="a-map">
+									<div class="a-map-content" id="a-map"></div>
+								</div>
+						
+								<script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+								<script>
+									function initialize() {
+										var mapOptions = {
+											center: new google.maps.LatLng(55.76324130, 37.64713033),
+											zoom: 17,
+											mapTypeId: google.maps.MapTypeId.ROADMAP,
+											disableDefaultUI: true,
+											scrollwheel: false
+										};
+						
+										var map = new google.maps.Map(document.getElementById("a-map"), mapOptions);
+						
+										var marker = new google.maps.Marker({
+											position: new google.maps.LatLng(55.76324130, 37.64713033),
+											map: map,
+											icon: 'img/ico/marker.svg'
+										});
+						
+									}
+									google.maps.event.addDomListener(window, 'load', initialize);
+								</script>
+							</div>
+						</section>
+
+						<section>
+							<h2><span>описание района</span></h2>
+							<div class="s-content">
+								<p>Идейные соображения высшего порядка, а также укрепление и развитие структуры способствует подготовки и реализации системы обучения кадров, соответствует насущным потребностям. Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание форм развития. Разнообразный и богатый опыт начало повседневной работы по формированию позиции способствует подготовки и реализации модели развития. Идейные соображения высшего порядка, а также укрепление и развитие структуры способствует подготовки и реализации системы обучения кадров, соответствует насущным потребностям. Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание форм развития. Разнообразный и богатый опыт начало повседневной работы по формированию позиции способствует подготовки и реализации модели развития.</p>
+							</div>
+						</section>
+
+					</article>
+
+				</div><!-- .m-content-section -->
 
 			</div><!-- .m-content -->
 
