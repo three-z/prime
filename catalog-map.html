@@ -39,11 +39,16 @@
 	<script src="js/vendor/jquery-validation/jquery.validate.min.js"></script>
 	<script src="js/vendor/jquery-validation/localization/messages_ru.js"></script>
 	<script src="js/vendor/switchy/switchy.js"></script>
-<script src="js/jquery.event.drag.js"></script>
-<script src="js/scripts.js"></script>
+	<script src="js/jquery.event.drag.js"></script>
+	
+	<!-- Maps tools -->
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+	<script src="js/markerwithlabel_packed.js"></script>
+	<script src="js/infobox_packed.js"></script>
+	<script src="js/maplace-0.1.3.min.js"></script>
+	<!-- Maps tools -->
 
-	
-	
+	<script src="js/scripts.js"></script>
 </head>
 
 <body>
@@ -477,66 +482,374 @@
 
 	</div><!-- .wrapper -->
 
-	<script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
-	<script src="js/infobox_packed.js"></script>
 	<script>
-		function initialize() {
-			var mapOptions = {
-				center: new google.maps.LatLng(55.76324130, 37.64713033),
-				zoom: 17,
-				mapTypeId: google.maps.MapTypeId.ROADMAP,
-				disableDefaultUI: true
-			};
 
-			var map = new google.maps.Map(document.getElementById("m-catalog-map"), mapOptions);
-
-			var contentString = '<div class="m-catalog-tile">' +
-									'<div class="m-catalog-tile-pic">' +
-										'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+		var windowOne = '<div class="m-catalog-tile">' +
+								'<div class="m-catalog-tile-pic">' +
+									'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+								'</div>' +
+								'<div class="m-catalog-tile-text">' +
+									'<a class="m-catalog-title" href="#"><span>Квартира</span></a>' +
+									'<div class="m-catalog-price">$ 6 000 000</div>' +
+									'<div class="m-catalog-params">' +
+										'<span>135 м.кв.</span>' +
+										'<span>4 спален</span>' +
+										'<span>квартира</span>' +
+										'<span>с ремонтом</span>' +
 									'</div>' +
-									'<div class="m-catalog-tile-text">' +
-										'<a class="m-catalog-title" href="#"><span>Квартира</span></a>' +
-										'<div class="m-catalog-price">$ 6 000 000</div>' +
-										'<div class="m-catalog-params">' +
-											'<span>135 м.кв.</span>' +
-											'<span>4 спален</span>' +
-											'<span>квартира</span>' +
-											'<span>с ремонтом</span>' +
-										'</div>' +
-										'<div class="m-catalog-location">' +
-											'Тверская-Ямская ул., д.21, м. Авиамоторная' +
-										'</div>' +
+									'<div class="m-catalog-location">' +
+										'Тверская-Ямская ул., д.21, м. Авиамоторная' +
 									'</div>' +
-									'<div class="m-catalog-tile-bubble">' +
-										'<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="26" height="23">' +
-											'<polygon points="0,0 26,0 13,23"/>' +
-										'</svg>' +
-									'</div>'
-								'</div>';
+								'</div>' +
 
-			var marker = new google.maps.Marker({
-				position: new google.maps.LatLng(55.76324130, 37.64713033),
-				map: map,
-				icon: 'img/ico/marker.svg'
-			});
+								'<div class="m-catalog-window-bubble">' +
+									'<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="26" height="23">' +
+										'<polygon points="0,0 26,0 13,23"/>' +
+									'</svg>' +
+								'</div>' +
 
-			var ib = new InfoBox({
-				content: contentString,
-				alignBottom: true,
-				pane: 'floatPane',
-				pixelOffset: new google.maps.Size(-230, -90),
-				closeBoxURL: '',
-				boxClass: 'm-catalog-map-window',
-				zIndex: 0
-			});
+							'</div>';
 
-			google.maps.event.addListener(marker, 'click', function() {
-				ib.open(map, marker);
-				marker.setIcon('img/ico/marker_active.svg');
-			});
+		var windowFew = '<div class="m-catalog-map-window">' +
 
-		}
-		google.maps.event.addDomListener(window, 'load', initialize);
+							'<div class="m-catalog-map-preview">' + 
+								'<span class="close"></span>' +
+								'<div class="m-catalog-map-preview-content"></div>' +
+							'</div>' +
+
+							'<div class="m-catalog-map-list">' +
+
+								'<a class="title" href="#">Жилой комплекс "Чистые пруды Застенчивые ивы"</a>' +
+
+								'<div class="numbers">12 объектов: <span class="rent">9-аренда</span> <span class="sell">3-продажа</span></div>' +
+
+								'<div class="nano">' +
+
+									'<div class="nano-content">' +
+
+										'<h4 class="rent">Аренда</h4>' +
+
+										'<ul>' +
+											'<li>' +
+												'<span>240 м.кв.</span><span>$ 14 500 000</span><span>4 спален</span><span>без ремонта</span>' +
+
+												'<div class="m-catalog-map-list-tile">' +
+													'<div class="m-catalog-tile-pic">' +
+														'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+													'</div>' +
+													'<div class="m-catalog-tile-text">' +
+														'<a class="m-catalog-title" href="#"><span>Квартира 1</span></a>' +
+														'<div class="m-catalog-price">$ 6 000 000</div>' +
+														'<div class="m-catalog-params">' +
+															'<span>135 м.кв.</span>' +
+															'<span>4 спален</span>' +
+															'<span>квартира</span>' +
+															'<span>с ремонтом</span>' +
+														'</div>' +
+														'<div class="m-catalog-location">' +
+															'Тверская-Ямская ул., д.21, м. Авиамоторная' +
+														'</div>' +
+													'</div>' +
+
+												'</div>'+ 
+
+
+											'</li>' +
+											'<li>' +
+												'<span>240 м.кв.</span><span>$ 14 500 000</span><span>4 спален</span><span>без ремонта</span>' +
+
+												'<div class="m-catalog-map-list-tile">' +
+													'<div class="m-catalog-tile-pic">' +
+														'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+													'</div>' +
+													'<div class="m-catalog-tile-text">' +
+														'<a class="m-catalog-title" href="#"><span>Квартира 2</span></a>' +
+														'<div class="m-catalog-price">$ 6 000 000</div>' +
+														'<div class="m-catalog-params">' +
+															'<span>135 м.кв.</span>' +
+															'<span>4 спален</span>' +
+															'<span>квартира</span>' +
+															'<span>с ремонтом</span>' +
+														'</div>' +
+														'<div class="m-catalog-location">' +
+															'Тверская-Ямская ул., д.21, м. Авиамоторная' +
+														'</div>' +
+													'</div>' +
+
+												'</div>'+ 
+
+
+											'</li>' +
+											'<li>' +
+												'<span>240 м.кв.</span><span>$ 14 500 000</span><span>4 спален</span><span>без ремонта</span>' +
+
+												'<div class="m-catalog-map-list-tile">' +
+													'<div class="m-catalog-tile-pic">' +
+														'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+													'</div>' +
+													'<div class="m-catalog-tile-text">' +
+														'<a class="m-catalog-title" href="#"><span>Квартира 3</span></a>' +
+														'<div class="m-catalog-price">$ 6 000 000</div>' +
+														'<div class="m-catalog-params">' +
+															'<span>135 м.кв.</span>' +
+															'<span>4 спален</span>' +
+															'<span>квартира</span>' +
+															'<span>с ремонтом</span>' +
+														'</div>' +
+														'<div class="m-catalog-location">' +
+															'Тверская-Ямская ул., д.21, м. Авиамоторная' +
+														'</div>' +
+													'</div>' +
+
+												'</div>'+ 
+
+
+											'</li>' +
+											'<li>' +
+												'<span>240 м.кв.</span><span>$ 14 500 000</span><span>4 спален</span><span>без ремонта</span>' +
+
+												'<div class="m-catalog-map-list-tile">' +
+													'<div class="m-catalog-tile-pic">' +
+														'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+													'</div>' +
+													'<div class="m-catalog-tile-text">' +
+														'<a class="m-catalog-title" href="#"><span>Квартира 4</span></a>' +
+														'<div class="m-catalog-price">$ 6 000 000</div>' +
+														'<div class="m-catalog-params">' +
+															'<span>135 м.кв.</span>' +
+															'<span>4 спален</span>' +
+															'<span>квартира</span>' +
+															'<span>с ремонтом</span>' +
+														'</div>' +
+														'<div class="m-catalog-location">' +
+															'Тверская-Ямская ул., д.21, м. Авиамоторная' +
+														'</div>' +
+													'</div>' +
+
+												'</div>'+ 
+
+
+											'</li>' +
+											'<li>' +
+												'<span>240 м.кв.</span><span>$ 14 500 000</span><span>4 спален</span><span>без ремонта</span>' +
+
+												'<div class="m-catalog-map-list-tile">' +
+													'<div class="m-catalog-tile-pic">' +
+														'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+													'</div>' +
+													'<div class="m-catalog-tile-text">' +
+														'<a class="m-catalog-title" href="#"><span>Квартира 5</span></a>' +
+														'<div class="m-catalog-price">$ 6 000 000</div>' +
+														'<div class="m-catalog-params">' +
+															'<span>135 м.кв.</span>' +
+															'<span>4 спален</span>' +
+															'<span>квартира</span>' +
+															'<span>с ремонтом</span>' +
+														'</div>' +
+														'<div class="m-catalog-location">' +
+															'Тверская-Ямская ул., д.21, м. Авиамоторная' +
+														'</div>' +
+													'</div>' +
+
+												'</div>'+ 
+
+
+											'</li>' +
+											'<li>' +
+												'<span>240 м.кв.</span><span>$ 14 500 000</span><span>4 спален</span><span>без ремонта</span>' +
+
+												'<div class="m-catalog-map-list-tile">' +
+													'<div class="m-catalog-tile-pic">' +
+														'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+													'</div>' +
+													'<div class="m-catalog-tile-text">' +
+														'<a class="m-catalog-title" href="#"><span>Квартира 6</span></a>' +
+														'<div class="m-catalog-price">$ 6 000 000</div>' +
+														'<div class="m-catalog-params">' +
+															'<span>135 м.кв.</span>' +
+															'<span>4 спален</span>' +
+															'<span>квартира</span>' +
+															'<span>с ремонтом</span>' +
+														'</div>' +
+														'<div class="m-catalog-location">' +
+															'Тверская-Ямская ул., д.21, м. Авиамоторная' +
+														'</div>' +
+													'</div>' +
+
+												'</div>'+ 
+
+
+											'</li>' +
+											'<li>' +
+												'<span>240 м.кв.</span><span>$ 14 500 000</span><span>4 спален</span><span>без ремонта</span>' +
+
+												'<div class="m-catalog-map-list-tile">' +
+													'<div class="m-catalog-tile-pic">' +
+														'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+													'</div>' +
+													'<div class="m-catalog-tile-text">' +
+														'<a class="m-catalog-title" href="#"><span>Квартира 7</span></a>' +
+														'<div class="m-catalog-price">$ 6 000 000</div>' +
+														'<div class="m-catalog-params">' +
+															'<span>135 м.кв.</span>' +
+															'<span>4 спален</span>' +
+															'<span>квартира</span>' +
+															'<span>с ремонтом</span>' +
+														'</div>' +
+														'<div class="m-catalog-location">' +
+															'Тверская-Ямская ул., д.21, м. Авиамоторная' +
+														'</div>' +
+													'</div>' +
+
+												'</div>'+ 
+
+
+											'</li>' +
+											'<li>' +
+												'<span>240 м.кв.</span><span>$ 14 500 000</span><span>4 спален</span><span>без ремонта</span>' +
+
+												'<div class="m-catalog-map-list-tile">' +
+													'<div class="m-catalog-tile-pic">' +
+														'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+													'</div>' +
+													'<div class="m-catalog-tile-text">' +
+														'<a class="m-catalog-title" href="#"><span>Квартира 8</span></a>' +
+														'<div class="m-catalog-price">$ 6 000 000</div>' +
+														'<div class="m-catalog-params">' +
+															'<span>135 м.кв.</span>' +
+															'<span>4 спален</span>' +
+															'<span>квартира</span>' +
+															'<span>с ремонтом</span>' +
+														'</div>' +
+														'<div class="m-catalog-location">' +
+															'Тверская-Ямская ул., д.21, м. Авиамоторная' +
+														'</div>' +
+													'</div>' +
+
+												'</div>'+ 
+
+
+											'</li>' +
+											'<li>' +
+												'<span>240 м.кв.</span><span>$ 14 500 000</span><span>4 спален</span><span>без ремонта</span>' +
+
+												'<div class="m-catalog-map-list-tile">' +
+													'<div class="m-catalog-tile-pic">' +
+														'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+													'</div>' +
+													'<div class="m-catalog-tile-text">' +
+														'<a class="m-catalog-title" href="#"><span>Квартира 9</span></a>' +
+														'<div class="m-catalog-price">$ 6 000 000</div>' +
+														'<div class="m-catalog-params">' +
+															'<span>135 м.кв.</span>' +
+															'<span>4 спален</span>' +
+															'<span>квартира</span>' +
+															'<span>с ремонтом</span>' +
+														'</div>' +
+														'<div class="m-catalog-location">' +
+															'Тверская-Ямская ул., д.21, м. Авиамоторная' +
+														'</div>' +
+													'</div>' +
+
+												'</div>'+ 
+
+
+											'</li>' +
+										'</ul>' +
+
+										'<h4 class="sell">Продажа</h4>' +
+
+										'<ul>' +
+											'<li>' +
+												'<span>240 м.кв.</span><span>$ 14 500 000</span><span>4 спален</span><span>без ремонта</span>' +
+
+												'<div class="m-catalog-map-list-tile">' +
+													'<div class="m-catalog-tile-pic">' +
+														'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+													'</div>' +
+													'<div class="m-catalog-tile-text">' +
+														'<a class="m-catalog-title" href="#"><span>Квартира 1</span></a>' +
+														'<div class="m-catalog-price">$ 6 000 000</div>' +
+														'<div class="m-catalog-params">' +
+															'<span>135 м.кв.</span>' +
+															'<span>4 спален</span>' +
+															'<span>квартира</span>' +
+															'<span>с ремонтом</span>' +
+														'</div>' +
+														'<div class="m-catalog-location">' +
+															'Тверская-Ямская ул., д.21, м. Авиамоторная' +
+														'</div>' +
+													'</div>' +
+
+												'</div>'+ 
+
+
+											'</li>' +
+											'<li>' +
+												'<span>240 м.кв.</span><span>$ 14 500 000</span><span>4 спален</span><span>без ремонта</span>' +
+
+												'<div class="m-catalog-map-list-tile">' +
+													'<div class="m-catalog-tile-pic">' +
+														'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+													'</div>' +
+													'<div class="m-catalog-tile-text">' +
+														'<a class="m-catalog-title" href="#"><span>Квартира 2</span></a>' +
+														'<div class="m-catalog-price">$ 6 000 000</div>' +
+														'<div class="m-catalog-params">' +
+															'<span>135 м.кв.</span>' +
+															'<span>4 спален</span>' +
+															'<span>квартира</span>' +
+															'<span>с ремонтом</span>' +
+														'</div>' +
+														'<div class="m-catalog-location">' +
+															'Тверская-Ямская ул., д.21, м. Авиамоторная' +
+														'</div>' +
+													'</div>' +
+
+												'</div>'+ 
+
+
+											'</li>' +
+											'<li>' +
+												'<span>240 м.кв.</span><span>$ 14 500 000</span><span>4 спален</span><span>без ремонта</span>' +
+
+												'<div class="m-catalog-map-list-tile">' +
+													'<div class="m-catalog-tile-pic">' +
+														'<a href="#"><img src="img/tmp/tile3.jpg" alt=""></a>' +
+													'</div>' +
+													'<div class="m-catalog-tile-text">' +
+														'<a class="m-catalog-title" href="#"><span>Квартира 3</span></a>' +
+														'<div class="m-catalog-price">$ 6 000 000</div>' +
+														'<div class="m-catalog-params">' +
+															'<span>135 м.кв.</span>' +
+															'<span>4 спален</span>' +
+															'<span>квартира</span>' +
+															'<span>с ремонтом</span>' +
+														'</div>' +
+														'<div class="m-catalog-location">' +
+															'Тверская-Ямская ул., д.21, м. Авиамоторная' +
+														'</div>' +
+													'</div>' +
+
+												'</div>'+ 
+
+
+											'</li>' +
+										'</ul>' +
+
+									'</div>' +
+
+								'</div>' +
+
+								'<div class="m-catalog-window-bubble">' +
+									'<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="26" height="23">' +
+										'<polygon points="0,0 26,0 13,23"/>' +
+									'</svg>' +
+								'</div>' +
+
+							'</div>' +
+
+						'</div>';
 
 		// map size
 		var mapBlock = $('#m-catalog-map');
@@ -549,11 +862,165 @@
 			} else {
 				mapBlock.css('height',  '');
 			}
+
 		}
 
 		mapHeight();
 
 		$(window).on('resize', mapHeight);
+
+		function initialize() {
+			
+			// map options
+			var mapOptions = {
+				center: new google.maps.LatLng(55.76424130, 37.65213033),
+				zoom: 17,
+				disableDefaultUI: true
+			};
+
+			// map
+			var map = new google.maps.Map(document.getElementById('m-catalog-map'), mapOptions);
+
+			// custom marker for one item
+			var markerForOne = new MarkerWithLabel({
+				position: new google.maps.LatLng(55.76324130, 37.64713033),
+				map: map,
+				icon: 'img/ico/marker-for-one.png',
+			});
+
+			// custom numbered marker for item list
+			var markerForFew = new MarkerWithLabel({
+				position: new google.maps.LatLng(55.76424130, 37.65213033),
+				map: map,
+				icon: 'img/ico/marker-for-few.png',
+				labelContent: '1',
+				labelAnchor: new google.maps.Point(17, 56),
+				labelClass: 'marker-label'
+			});
+
+			// custom infowindow for one item
+			var ibOne = new InfoBox({
+				content: windowOne,
+				alignBottom: true,
+				pixelOffset: new google.maps.Size(-189, -90),
+				closeBoxURL: '',
+				boxClass: 'm-catalog-map-window-wrapper',
+			});
+
+			// custom infowindow for item list
+			var ibFew = new InfoBox({
+				content: windowFew,
+				alignBottom: true,
+				pixelOffset: new google.maps.Size(-195, -90),
+				closeBoxURL: '',
+				boxClass: 'm-catalog-map-window-wrapper'
+			});
+
+			var actionOne = 1;
+			var actionFew = 1;
+
+			// open infobox for one item and disable scroll
+			google.maps.event.addListener(markerForOne, 'click', function() {
+
+				ibFew.close();
+
+				if ( actionOne == 1 ) {
+					ibOne.open(map, markerForOne);
+					map.set('scrollwheel', false);
+
+					actionOne = 2;
+					actionFew = 1;
+				} else {
+					ibOne.close();
+					map.set('scrollwheel', true);
+
+					actionOne = 1;
+					actionFew = 1;
+				}
+
+			});
+
+			// open infobox for item list, disable scroll and init custom scrollbar
+			google.maps.event.addListener(markerForFew, 'click', function() {
+
+				ibOne.close();
+
+				if ( actionFew == 1 ) {
+					ibFew.open(map, markerForFew);
+					map.set('scrollwheel', false);
+
+					if ( $('html').hasClass('touch') ) {
+						map.set('draggable', false);
+					}
+					
+					function infoboxStuff() {
+						setTimeout(function(){
+
+							// scrollbar
+							var scrollBlock = $('.nano');
+							scrollBlock.nanoScroller();
+
+							// show and hide map list items
+							var itemToggle = $('.m-catalog-map-list').find('li');
+
+							itemToggle.on('mousedown touchstart', function(){
+
+								if ( mapBlock.width() < 768 ) {
+
+									if ( $(this).hasClass('active') ) {
+										$(this).removeClass('active')
+									} else {
+										$(this).addClass('active').siblings().removeClass('active');
+									}
+
+								} else {
+
+									if ( $(this).hasClass('highlight') ) {
+										$('.m-catalog-map-preview').removeClass('active');
+										$('.m-catalog-map-preview-content').empty();
+										$(this).removeClass('highlight')
+
+									} else {
+										$(this).addClass('highlight').siblings().removeClass('highlight');
+										$('.m-catalog-map-preview-content').empty();
+										$('.m-catalog-map-preview').addClass('active');
+										$(this).find('.m-catalog-map-list-tile').clone().appendTo('.m-catalog-map-preview-content');
+									}
+
+								}
+
+							});
+
+							$('.m-catalog-map-preview').find('.close').on('click', function(){
+								$('.m-catalog-map-preview').removeClass('active');
+								$('.m-catalog-map-preview-content').empty();
+								itemToggle.removeClass('highlight')
+							})
+
+						}, 10);
+					}
+
+					infoboxStuff()
+
+					$(window).on('resize', function(){
+						ibFew.open(map, markerForFew);
+						infoboxStuff()
+					});
+
+					actionFew = 2;
+					actionOne = 1;
+				} else {
+					ibFew.close();
+					map.set('scrollwheel', true);
+					map.set('draggable', true);
+
+					actionFew = 1;
+					actionOne = 1;
+				}
+
+			});
+
+		} google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
 
 </body>

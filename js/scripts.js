@@ -421,7 +421,7 @@ $(document).ready(function(){
 	sectionTitle.on('click', function(){
 		if ( !Modernizr.mq('(min-width: 590px)') ) {
 			$(this).toggleClass('active');
-			$(this).next('.s-content').slideToggle()
+			$(this).next('.s-content').slideToggle();
 		}
 	});
 

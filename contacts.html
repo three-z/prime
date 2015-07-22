@@ -109,13 +109,15 @@
 
 							<div class="m-aside-content-wrapper">
 
-								<h2 class="m-aside-content-heading">Контакты</h2>
+								<h2 class="m-aside-content-heading m-aside-content-heading--nopadding">Контакты</h2>
 								
 								<div class="m-aside-contacts">
 									115093, Москва, пр.Ленина, 27, офис 14 <br>
 									+7 (495) 123 45 67 <br>
 									<a href="mailto:info@prime.ru">info@prime.ru</a>
 								</div><!-- .m-aside-contacts -->
+
+								<span class="m-aside-map-toggle"><u>Посмотреть на карте</u></span>
 
 								<div class="m-aside-map">
 									<div id="m-aside-map"></div>
@@ -238,6 +240,17 @@
 				position: new google.maps.LatLng(55.76324130, 37.64713033),
 				map: mapSmall,
 				icon: 'img/prime-map.png'
+			});
+
+			// map toggle
+			var mapToggle = $('.m-aside-map-toggle');
+			var currCenter = new google.maps.LatLng(55.76324130, 37.64713033);
+
+			mapToggle.on('click', function(){
+				$(this).toggleClass('active');
+				$(this).next('.m-aside-map').toggleClass('active');
+
+				window.dispatchEvent(new Event('resize'));
 			});
 
 		}
