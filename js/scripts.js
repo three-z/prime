@@ -408,7 +408,7 @@ $(document).ready(function(){
 		});
 	});
 	
-	// detail page spoilers
+	// detail page spoilers, infotext spoilers
 	var sectionTitle = $('section').find('h2');
 	var sectionContent = $('section').find('.s-content');
 
@@ -431,6 +431,21 @@ $(document).ready(function(){
 		} else {
 			sectionContent.hide();
 		}
+	});
+
+	var infoCut = $('#infotext-toggle');
+	var infoContent = $('#infotext-content');
+
+	infoCut.on('click', function(e){
+		if ( $(this).hasClass('active') ) {
+			$(this).removeClass('active').find('u').text('Читать далее');
+			infoContent.slideUp()
+		} else {
+			$(this).addClass('active').find('u').text('Свернуть');
+			infoContent.slideDown()
+		}
+
+		e.preventDefault();
 	});
 
 	// popup windows
