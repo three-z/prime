@@ -1293,6 +1293,10 @@ main {
 	margin: 0 auto;
 	padding: 30px 0;
 
+	&--wide {
+		width: 400px;
+	}
+
 	@media all and (max-width: @mq-medium) {
 		width: auto;
 	}
@@ -1499,7 +1503,7 @@ main {
 	font-size: 15px;
 	text-transform: uppercase;
 	color: #116fb6;
-	margin-bottom: 23px;
+	margin-bottom: 40px;
 	line-height: 26px;
 
 	@media all and (max-width: @mq-small) {
@@ -1632,6 +1636,10 @@ main {
 	@media all and (min-width: (@mq-medium + 1px)) and (max-width: @mq-large) {
 		width: 100%;
 		position: absolute;
+	}
+
+	@media all and (max-width: @mq-small) {
+		margin-bottom: -19px;
 	}
 
 	form {
@@ -2376,6 +2384,7 @@ main {
 	position: absolute;
 	left: 0;
 	display: none;
+	z-index: 10;
 
 	@media all and (max-width: @mq-small) {
 		display: block;
@@ -2393,6 +2402,12 @@ main {
 		li {
 			display: table-cell;
 			border-right: 1px solid #c9c9c9;
+
+			&:first-child {
+				a {
+					padding-left: 14px;
+				}
+			}
 
 			&:last-child {
 				border-right: 0;
@@ -2416,10 +2431,11 @@ main {
 	margin-bottom: 66px;
 
 	@media all and (max-width: @mq-small) {
+		box-sizing: border-box;
 		width: 100%;
-		padding: 0 20px;
-		margin-left: -20px;
-		margin-right: -20px;
+		padding: 0;
+		margin-left: 0;
+		margin-right: 0;
 		margin-bottom: 36px;
 		margin-top: -38px;
 	}
@@ -3319,6 +3335,8 @@ h1, h2 {
 			}
 
 			&:hover {
+				background-image: url('@{img-path}/ico/favorite_blue.svg');
+
 				span {
 					right: 50px;
 					.animate-visible;
@@ -3892,7 +3910,7 @@ h1, h2 {
 	margin-right: 20px;
 
 	@media all and (max-width: @mq-medium) {
-		display: none;
+		// display: none;
 	}
 
 	.m-catalog-view-show-title {

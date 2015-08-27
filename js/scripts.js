@@ -180,7 +180,9 @@ $(document).ready(function(){
 	// custom scrollbar
 	var scrollBlock = $('.nano');
 
-	scrollBlock.nanoScroller();
+	scrollBlock.nanoScroller({
+		preventPageScrolling: true
+	});
 
 	// custom select
 	function selectPos(){
@@ -301,7 +303,7 @@ $(document).ready(function(){
 
 	function galleryFullscreen(){
 
-		var slide = $('.swiper-slide');
+		var slide = $('.gallery-main .swiper-slide');
 		var gallery = $('.gallery');
 		var scroll = $('.gallery-thumbs .nano-content');
 
@@ -448,26 +450,6 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 
-	// popup windows
-	$('.mfp-link').magnificPopup({
-		removalDelay: 300,
-		midClick: true,
-		mainClass: 'mfp-anim',
-		overflowY: 'scroll',
-
-		callbacks: {
-		    open: function() {
-		    	$('html').addClass('moved');
-				$('.m-aside').css('right', getScrollbarWidth());
-				$('.m-content-home').css('right', getScrollbarWidth() + 40)
-		    },
-		    close: function() {
-				$('html').removeClass('moved');
-				$('.m-aside, .m-content-home').css('right', '')
-		    }
-		  }
-	});
-
 	// reviews slider
 	var reviewsSliderCheck = $('.a-reviews-slider');
 
@@ -490,6 +472,26 @@ $(document).ready(function(){
 	if ( reviewsSliderCheck.length ) {
 		$(window).on('resize', reviewsAutoHeight);
 	}
+
+	// popup windows
+	$('.mfp-link').magnificPopup({
+		removalDelay: 300,
+		midClick: true,
+		mainClass: 'mfp-anim',
+		overflowY: 'scroll',
+
+		callbacks: {
+		    open: function() {
+		    	$('html').addClass('moved');
+				$('.m-aside').css('right', getScrollbarWidth());
+				$('.m-content-home').css('right', getScrollbarWidth() + 40)
+		    },
+		    close: function() {
+				$('html').removeClass('moved');
+				$('.m-aside, .m-content-home').css('right', '')
+		    }
+		}
+	});
 
 	// home page cover
 	var homeCover = $('.m-content-home');
