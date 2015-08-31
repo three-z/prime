@@ -200,7 +200,25 @@ $(document).ready(function(){
 	$('.wrapper select:not(.m-filter-toggle-switchy)').selectOrDie({
 		size: 5,
 		onChange: selectPos
-	}).each(selectPos);
+	});
+
+	$('.sod_select').on('click', function(){
+
+		if ( !$(this).find('select').hasClass('range') ) {
+			$(this).find('.sod_list_wrapper').css('top', - $(this).find('.sod_option.selected').position().top );
+		}
+
+	});
+
+	$('.wrapper select:not(.m-filter-toggle-switchy)').each(function(){
+
+		if ( $(this).val() ) {
+			$(this).parent().addClass('selected');
+		} else {
+			$(this).parent().removeClass('selected');
+		}
+
+	});
 
 	var rangeFilter = $('.m-filter-range');
 	rangeFilter.each(function(){
