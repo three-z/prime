@@ -4044,7 +4044,7 @@ h1, h2 {
 
 }
 
-.m-filters-row {
+.m-filters-row:not(.m-filter-similar) {
 	border: solid #d4d4d4;
 	border-width: 1px 0;
 	margin-top: -1px;
@@ -4367,6 +4367,7 @@ h1, h2 {
 		} // + label
 
 		&:checked {
+			background: red;
 			+ label {
 				color: #116fb6;
 				cursor: default;
@@ -4688,7 +4689,7 @@ h1, h2 {
 
 .m-filter-similar-list {
 	font-size: 0;
-	margin-top: 41px;
+	// margin-top: 41px;
 
 	li {
 		display: inline-block;
@@ -6247,6 +6248,21 @@ button.mfp-close {
 
 .wrapper input, textarea, button {
 	-webkit-appearance: none;
+}
+
+.js-similar-list {
+	position: relative;
+	padding-left: 10px;
+	margin-top: 41px;
+	margin-bottom: 22px;
+
+	@media all and (max-width: @mq-large) {
+		// max-height: 174px !important;
+	}
+
+	&:hover > .ps-scrollbar-y-rail {
+		background: #f2f2f2;
+	}
 }
 
 // Glyph icons

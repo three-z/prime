@@ -677,4 +677,26 @@ $(document).ready(function(){
 
 	switchy.switchy();
 
+	var similarItems = $('.js-similar-list');
+
+	function similarHeight() {
+		var b = $('.m-aside');
+		var i = $(this).find('li').eq(0).height();
+
+		if ( Modernizr.mq('(min-width: 1280px)') ) {
+			$(this).css('max-height', b.height() - 60 );
+		} else if ( Modernizr.mq('(min-width: 668px)') ) {
+			$(this).css('max-height', i*2 + 22*1 );
+		} else {
+			$(this).css('max-height', i*4 + 22*3 );
+		}
+	}
+
+	similarItems.each(similarHeight);
+	$(window).on('resize', function(){
+		similarItems.each(similarHeight);
+	});
+
+	similarItems.perfectScrollbar();
+
 });
