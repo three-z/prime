@@ -21,7 +21,7 @@
 }
 
 // Breakpoints
-@mq-small: 589px;
+@mq-small: 667px; // (iPhone 6 css-height)
 @mq-tablet: 767px;
 @mq-medium: 959px;
 @mq-large: 1279px;
@@ -367,6 +367,7 @@ header {
 }
 
 .h-phone-link {
+	float: right;
 	border-bottom: 1px dashed;
 
 	@media all and (max-width: @mq-medium) {
@@ -3827,6 +3828,10 @@ h1, h2 {
 	float: left;
 	margin-right: 126px;
 
+	@media all and (max-width: 1500px) {
+		margin-right: 70px;
+	}
+
 	@media all and (max-width: @mq-medium) {
 		margin-right: 0;
 	}
@@ -3954,7 +3959,7 @@ h1, h2 {
 } // .m-catalog-view-show
 
 .m-catalog-view-show-title {
-	@media all and (max-width: @mq-large) {
+	@media all and (min-width: (@mq-large + 1px)) and (max-width: 1500px) {
 		display: none;
 	}
 }
@@ -5274,7 +5279,7 @@ footer {
 	color: #fff;
 	overflow: hidden;
 
-	@media all and (max-width: @mq-tablet) {
+	@media all and (max-width: 1023px) {
 		right: 0;
 	}
 
@@ -5301,7 +5306,7 @@ footer {
 	top: 0;
 	z-index: 1;
 
-	@media all and (max-width: @mq-tablet) {
+	@media all and (max-width: 1023px) {
 		display: none;
 	}
 
@@ -5488,7 +5493,7 @@ footer {
 	top: 0;
 	right: 0;
 
-	@media all and (max-width: @mq-tablet) {
+	@media all and (max-width: 1023px) {
 		display: none;
 	}
 }
@@ -5502,7 +5507,7 @@ footer {
 		bottom: 0;
 		z-index: 1;
 
-		@media all and (max-width: @mq-tablet) {
+		@media all and (max-width: 1023px) {
 			display: block;
 		}
 	}
@@ -5722,7 +5727,7 @@ footer {
 	z-index: 1;
 	cursor: pointer;
 
-	@media all and (max-width: @mq-tablet) {
+	@media all and (max-width: 1023px) {
 		display: block;
 	}
 

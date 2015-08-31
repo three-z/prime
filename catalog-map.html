@@ -88,7 +88,7 @@
 				
 				<div class="h-phone">
 					<div class="h-phone-number">+7 (495) 123-45-67</div>
-					<a class="h-phone-link" href="#">Заказать обратный звонок</a>
+					<a class="h-phone-link" href="#">Связаться с нами</a>
 				</div>
 
 				<div class="h-ico-nav">
@@ -136,7 +136,7 @@
 					<form>
 						<a class="m-header-search-toggle" href="#"></a>
 						<input type="submit" value="">
-						<input type="text" placeholder="Ведите ID или адрес объекта">
+						<input type="text" placeholder="Введите ID, адрес объекта, название ЖК или поселка">
 					</form>
 				</div>
 
@@ -903,6 +903,7 @@
 				position: new google.maps.LatLng(55.76324130, 37.64713033),
 				map: map,
 				icon: 'img/ico/marker-for-one.png',
+				title: 'Квартира'
 			});
 
 			// custom numbered marker for item list
@@ -912,7 +913,8 @@
 				icon: 'img/ico/marker-for-few.png',
 				labelContent: '1',
 				labelAnchor: new google.maps.Point(17, 56),
-				labelClass: 'marker-label'
+				labelClass: 'marker-label',
+				title: 'Жилой комплекс "Чистые пруды Застенчивые ивы"'
 			});
 
 			// custom infowindow for one item
