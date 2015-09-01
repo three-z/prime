@@ -3213,7 +3213,13 @@ h1, h2 {
 .aside-no {
 	.m-catalog-list-pics {
 		a {
-			@media all and (min-width: 1501px) and (max-width: 1900px) {
+			@media all and (min-width: 1801px) {
+				&:nth-child(-n+5) {
+					display: inline;
+				}
+			}
+
+			@media all and (min-width: 1501px) and (max-width: 1800px) {
 				&:nth-child(-n+4) {
 					display: inline;
 				}

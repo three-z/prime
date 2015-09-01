@@ -438,13 +438,19 @@ $(document).ready(function(){
 			nextButton: $(this).parent().find('.tile-slider-next')[0],
 			prevButton: $(this).parent().find('.tile-slider-prev')[0]
 		});
+
+		$(window).on('resize', function(){
+			setTimeout(function(){
+				mySiwper.onResize()
+			}, 500);
+		});
 	});
 
-	$(window).on('resize', function(){
-		setTimeout(function(){
-			window.dispatchEvent(new Event('resize'));
-		}, 500);
-	});
+	// $(window).on('resize', function(){
+	// 	setTimeout(function(){
+	// 		window.dispatchEvent(new Event('resize'));
+	// 	}, 500);
+	// });
 	
 	// detail page spoilers, infotext spoilers
 	var sectionTitle = $('section').find('h2');
