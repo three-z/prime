@@ -47,7 +47,10 @@ html {
 	min-width: 320px;
 
 	&.moved {
-		header { overflow-y: scroll !important; }
+		header {
+			overflow-y: scroll !important;
+			-webkit-transform: translate3d(0,0,0);
+		}
 	}
 
 	&.noscroll {
