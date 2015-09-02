@@ -3163,35 +3163,49 @@ h1, h2 {
 	}
 
 	a {
-		display: none;
+		// display: none;
+		display: inline-block;
+		height: 100%;
+		width: 0;
+		.animate-hidden;
+		.transition(all, 0.3s, ease-in-out);
 
 		@media all and (min-width: 1901px) {
 			&:nth-child(-n+4) {
-				display: inline;
+				//display: inline;
+				width: 166px;
+				.animate-visible;
 			}
 		}
 
 		@media all and (min-width: 1501px) and (max-width: 1900px) {
 			&:nth-child(-n+3) {
-				display: inline;
+				//display: inline;
+				width: 166px;
+				.animate-visible;
 			}
 		}
 
 		@media all and (min-width: 1366px) and (max-width: 1500px) {
 			&:nth-child(-n+2) {
-				display: inline;
+				//display: inline;
+				width: 166px;
+				.animate-visible;
 			}
 		}
 
 		@media all and (max-width: 1365px) {
 			&:nth-child(-n+1) {
-				display: inline;
+				//display: inline;
+				width: 166px;
+				.animate-visible;
 			}
 		}
 	}
 
 	img {
 		display: inline-block;
+		max-width: 166px;
 		height: 100%;
 		.transition(all, .6s, ease);
 
@@ -3218,43 +3232,57 @@ h1, h2 {
 		a {
 			@media all and (min-width: 1801px) {
 				&:nth-child(-n+5) {
-					display: inline;
+					//display: inline;
+					width: 166px;
+					.animate-visible;
 				}
 			}
 
 			@media all and (min-width: 1501px) and (max-width: 1800px) {
 				&:nth-child(-n+4) {
-					display: inline;
+					//display: inline;
+					width: 166px;
+					.animate-visible;
 				}
 			}
 
 			@media all and (min-width: 1366px) and (max-width: 1500px) {
 				&:nth-child(-n+3) {
-					display: inline;
+					//display: inline;
+					width: 166px;
+					.animate-visible;
 				}
 			}
 
 			@media all and (min-width: 1280px) and (max-width: 1365px) {
 				&:nth-child(-n+4) {
-					display: inline;
+					//display: inline;
+					width: 166px;
+					.animate-visible;
 				}
 			}
 
 			@media all and (min-width: 1131px) and (max-width: 1279px) {
 				&:nth-child(-n+3) {
-					display: inline;
+					//display: inline;
+					width: 166px;
+					.animate-visible;
 				}
 			}
 
 			@media all and (min-width: 868px) and (max-width: 1130px) {
 				&:nth-child(-n+2) {
-					display: inline;
+					//display: inline;
+					width: 166px;
+					.animate-visible;
 				}
 			}
 
 			@media all and (max-width: 867px) {
 				&:nth-child(-n+1) {
-					display: inline;
+					//display: inline;
+					width: 166px;
+					.animate-visible;
 				}
 			}
 		}
