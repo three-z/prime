@@ -1228,9 +1228,14 @@ main {
 			padding-right: 32px;
 		}
 
-		.m-filters-row-half {
-			.m-filter-size {
-				// margin-left: 0;
+	}
+
+	.m-filters-row-half {
+		.m-filter-size {
+			// margin-left: 0;
+
+			@media all and (max-width: @mq-medium) {
+				margin-left: 0;
 			}
 		}
 	}
@@ -4306,6 +4311,13 @@ h1, h2 {
 			&:hover {
 				background: none;
 			}
+		}
+	}
+
+	.m-filter-range {
+		.sod_select {
+			margin-left: 0;
+			margin-right: 0;
 		}
 	}
 

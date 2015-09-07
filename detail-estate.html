@@ -459,10 +459,10 @@
 					
 					<h2 class="m-aside-content-heading">подобрать недвижимость</h2>
 
-					<div class="m-filters-row m-filters-row-pick">
+					<div class="m-filters-row">
 						<div class="m-filter-toggle">
-							<input type="radio" id="filter-sale-sell-2" name="filter-sale-2" checked>
-							<label for="filter-sale-sell-2"><span><u>Продажа</u></span></label>
+							<input type="radio" id="filter-sale-sell2" name="filter-sale2">
+							<label for="filter-sale-sell2"><span><u>Продажа</u></span></label>
 
 							<!-- <span class="m-filter-toggle-trigger"><i></i></span> -->
 							<select class="m-filter-toggle-switchy">
@@ -471,8 +471,8 @@
 								<option value="right">right</option>
 							</select>
 
-							<input type="radio" id="filter-sale-rent-2" name="filter-sale-2">
-							<label for="filter-sale-rent-2"><span><u>Аренда</u></span></label>
+							<input type="radio" id="filter-sale-rent2" name="filter-sale2">
+							<label for="filter-sale-rent2"><span><u>Аренда</u></span></label>
 						</div>
 					</div><!-- .m-filters-row -->
 
@@ -482,8 +482,8 @@
 							<h3>Стоимость:</h3>
 
 							<div class="m-filter-toggle">
-								<input type="radio" id="filter-price-obj-2" name="filter-price-2" checked>
-								<label for="filter-price-obj-2"><span><u>За объект</u></span></label>
+								<input type="radio" id="filter-price-obj2" name="filter-price2">
+								<label for="filter-price-obj2"><span><u>За объект</u></span></label>
 
 								<!-- <span class="m-filter-toggle-trigger"><i></i></span> -->
 								<select class="m-filter-toggle-switchy">
@@ -492,16 +492,40 @@
 									<option value="right">right</option>
 								</select>
 
-								<input type="radio" id="filter-price-metr-2" name="filter-price-2">
-								<label for="filter-price-metr-2"><span><u>За метр кв<b>адратный</b><b class="dot">.</b></u></span></label>
+								<input type="radio" id="filter-price-metr2" name="filter-price2">
+								<label for="filter-price-metr2"><span><u>За метр кв<b>адратный</b><b class="dot">.</b></u></span></label>
 							</div>
 
-							<select>
-								<option value="1">$ 1 млн. -  $ 4 млн.</option>
-								<option value="2">$ 5 млн. -  $ 9 млн.</option>
-								<option value="3">$ 10 млн. -  $ 14 млн.</option>
-								<option value="4">$ 15 млн. -  $ 20 млн.</option>
-							</select>
+							<div class="m-filter-range m-filter-toggle-content">
+
+								<select class="range range-from">
+									<option value="0" selected>$ 0 млн.</option>
+									<option value="1">$ 1 млн.</option>
+									<option value="2">$ 5 млн.</option>
+									<option value="3">$ 10 млн.</option>
+									<option value="4">$ 15 млн.</option>
+									<option value="5">$ 20 млн.</option>
+									<option value="6">$ 25 млн.</option>
+									<option value="7">$ 30 млн.</option>
+								</select>
+
+								<select class="range range-to">
+									<option value="0">$ 0 млн.</option>
+									<option value="1">$ 1 млн.</option>
+									<option value="2">$ 5 млн.</option>
+									<option value="3">$ 10 млн.</option>
+									<option value="4">$ 15 млн.</option>
+									<option value="5">$ 20 млн.</option>
+									<option value="6">$ 25 млн.</option>
+									<option value="7" selected>$ 30 млн.</option>
+								</select>
+
+								<div class="m-filter-range-field">
+									<span class="from">0</span> - 
+									<span class="to">30</span>
+								</div>
+
+							</div><!-- .m-filter-range -->
 						</div>
 
 						<div class="m-filters-row m-filters-row-half">
@@ -509,8 +533,8 @@
 							<h3 class="blank">&nbsp;</h3>
 
 							<div class="m-filter-toggle">
-								<input type="radio" id="filter-size-square-2" name="filter-size-2">
-								<label for="filter-size-square-2"><span><u>Площадь</u></span></label>
+								<input type="radio" id="filter-size-square2" name="filter-size2">
+								<label for="filter-size-square2"><span><u>Площадь</u></span></label>
 
 								<!-- <span class="m-filter-toggle-trigger"><i></i></span> -->
 								<select class="m-filter-toggle-switchy">
@@ -519,28 +543,59 @@
 									<option value="right">right</option>
 								</select>
 
-								<input type="radio" id="filter-size-bed-2" name="filter-size-2" checked>
-								<label for="filter-size-bed-2"><span><u>Количество спален</u></span></label>
+								<input type="radio" id="filter-size-bed2" name="filter-size2">
+								<label for="filter-size-bed2"><span><u>Количество спален</u></span></label>
 							</div>
 
-							<div class="m-filter-size">
-								<input type="checkbox" id="bed-1-2" checked>
-								<label for="bed-1-2">1</label>
+							<div class="m-filter-range m-filter-toggle-content">
 
-								<input type="checkbox" id="bed-2-2">
-								<label for="bed-2-2">2</label>
+								<select class="range range-from">
+									<option value="0" selected>100 кв. м.</option>
+									<option value="1">200 кв. м.</option>
+									<option value="2">300 кв. м.</option>
+									<option value="3">400 кв. м.</option>
+									<option value="4">500 кв. м.</option>
+									<option value="5">600 кв. м.</option>
+									<option value="6">700 кв. м.</option>
+									<option value="7">800 кв. м.</option>
+								</select>
 
-								<input type="checkbox" id="bed-3-2">
-								<label for="bed-3-2">3</label>
+								<select class="range range-to">
+									<option value="0">100 кв. м.</option>
+									<option value="1">200 кв. м.</option>
+									<option value="2">300 кв. м.</option>
+									<option value="3">400 кв. м.</option>
+									<option value="4">500 кв. м.</option>
+									<option value="5">600 кв. м.</option>
+									<option value="6">700 кв. м.</option>
+									<option value="7" selected>800 кв. м.</option>
+								</select>
 
-								<input type="checkbox" id="bed-4-2">
-								<label for="bed-4-2">4</label>
+								<div class="m-filter-range-field">
+									<span class="from">0</span> - 
+									<span class="to">30</span>
+								</div>
 
-								<input type="checkbox" id="bed-5-2">
-								<label for="bed-5-2">5</label>
+							</div><!-- .m-filter-range -->
 
-								<input type="checkbox" id="bed-6-2">
-								<label for="bed-6-2">6+</label>
+							<div class="m-filter-size m-filter-toggle-content">
+								<input type="checkbox" id="bed-122" checked>
+								<label for="bed-122">1</label>
+
+								<input type="checkbox" id="bed-222">
+								<label for="bed-222">2</label>
+
+								<input type="checkbox" id="bed-322">
+								<label for="bed-322">3</label>
+
+								<input type="checkbox" id="bed-422">
+								<label for="bed-422">4</label>
+
+								<input type="checkbox" id="bed-522">
+								<label for="bed-522">5</label>
+
+								<input type="checkbox" id="bed-622">
+								<label for="bed-622">6+</label>
 							</div>
 							
 						</div>
@@ -552,11 +607,11 @@
 						<h3>Состояние:</h3>
 						
 						<div class="m-filter-pick">
-							<input type="checkbox" id="rem-1-2" checked>
-							<label for="rem-1-2"><span><u>С ремонтом</u></span></label>
+							<input type="checkbox" id="rem-12" checked>
+							<label for="rem-1"><span><u>С ремонтом</u></span></label>
 
-							<input type="checkbox" id="rem-2-2">
-							<label for="rem-2-2"><span><u>Без ремонта</u></span></label>
+							<input type="checkbox" id="rem-22">
+							<label for="rem-2"><span><u>Без ремонта</u></span></label>
 						</div>
 					</div>
 
@@ -568,11 +623,25 @@
 
 						<div class="m-catalog-view-cell">
 
-							<ul class="m-catalog-view-sort">
-								<li><a class="up active" href="#"><span>По цене</span></a></li>
-								<li><a class="down" href="#"><span>По площади</span></a></li>
-								<li><a class="down" href="#"><span>По дате</span></a></li>
-							</ul>
+							<div class="m-catalog-view-sort">
+
+								<select>
+									<option value="1">По дате публикации</option>
+									<option value="2">По цене</option>
+									<option value="3">По площади</option>
+								</select>
+
+							</div><!-- .m-catalog-view-sort -->
+
+							<div class="m-catalog-view-sort m-catalog-view-show">
+								
+								<select>
+									<option value="1">20 объектов</option>
+									<option value="2">40 объектов</option>
+									<option value="3">Все объекты</option>
+								</select>
+
+							</div>
 
 						</div><!-- .m-catalog-view-cell -->
 
