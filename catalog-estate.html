@@ -142,7 +142,7 @@
 
 					<div class="m-aside-header">
 
-						<div class="m-aside-header-toggle" id="m-aside-toggle"><span></span></div>
+						<div class="m-aside-header-toggle" id="m-aside-toggle">Свернуть</div>
 
 						<ul class="m-aside-header-view">
 							<li><a class="active" href="#"><span>Плиткой</span></a></li>
@@ -369,20 +369,24 @@
 
 						<div class="m-catalog-view-cell">
 
-							<ul class="m-catalog-view-sort">
-								<li><a class="up active" href="#"><span>По цене</span></a></li>
-								<li><a class="down" href="#"><span>По площади</span></a></li>
-								<li><a class="down" href="#"><span>По дате</span></a></li>
-							</ul>
+							<div class="m-catalog-view-sort">
 
-							<div class="m-catalog-view-show">
-								<span class="m-catalog-view-show-title">Отображать объектов:</span>
+								<select>
+									<option value="1">По дате публикации</option>
+									<option value="2">По цене</option>
+									<option value="3">По площади</option>
+								</select>
 
-								<ul>
-									<li><a class="active" href="#"><span>20</span></a></li>
-									<li><a href="#"><span>40</span></a></li>
-									<li><a href="#"><span>ВСЕ</span></a></li>
-								</ul>
+							</div><!-- .m-catalog-view-sort -->
+
+							<div class="m-catalog-view-sort m-catalog-view-show">
+								
+								<select>
+									<option value="1">20 объектов</option>
+									<option value="2">40 объектов</option>
+									<option value="3">Все объекты</option>
+								</select>
+
 							</div>
 
 						</div><!-- .m-catalog-view-cell -->

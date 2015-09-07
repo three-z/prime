@@ -142,7 +142,7 @@
 
 					<div class="m-aside-header">
 
-						<div class="m-aside-header-toggle" id="m-aside-toggle"><span></span></div>
+						<div class="m-aside-header-toggle" id="m-aside-toggle">Свернуть</div>
 
 						<ul class="m-aside-header-view">
 							<li><a class="active" href="#"><span>Плиткой</span></a></li>
@@ -157,7 +157,7 @@
 						<a class="m-aside-tabs-sort" href="#m-tab-sort-content">Сортировать</a>
 					</div>
 
-					<div class="m-aside-content nano m-aside-tabs-content" id="m-tab-filter-content">
+					<div class="m-aside-content nano m-aside-tabs-content with-tip" id="m-tab-filter-content">
 
 						<div class="nano-content">
 
@@ -166,6 +166,11 @@
 								<h2 class="m-aside-content-heading m-mobile-hidden">Фильтр</h2>
 								
 								<div class="m-filters">
+
+									<div class="m-filters-tip">
+										<span>Результаты поиска <br> формируются автоматически</span>
+										<i class="m-filters-tip-close"></i>
+									</div>
 
 									<div class="m-filters-row m-mobile-hidden">
 
@@ -439,20 +444,24 @@
 
 						<div class="m-catalog-view-cell">
 
-							<ul class="m-catalog-view-sort">
-								<li><a class="up active" href="#"><span>По цене</span></a></li>
-								<li><a class="down" href="#"><span>По площади</span></a></li>
-								<li><a class="down" href="#"><span>По дате</span></a></li>
-							</ul>
+							<div class="m-catalog-view-sort">
 
-							<div class="m-catalog-view-show">
-								<span class="m-catalog-view-show-title">Отображать объектов:</span>
+								<select>
+									<option value="1">По дате публикации</option>
+									<option value="2">По цене</option>
+									<option value="3">По площади</option>
+								</select>
 
-								<ul>
-									<li><a class="active" href="#"><span>20</span></a></li>
-									<li><a href="#"><span>40</span></a></li>
-									<li><a href="#"><span>ВСЕ</span></a></li>
-								</ul>
+							</div><!-- .m-catalog-view-sort -->
+
+							<div class="m-catalog-view-sort m-catalog-view-show">
+								
+								<select>
+									<option value="1">20 объектов</option>
+									<option value="2">40 объектов</option>
+									<option value="3">Все объекты</option>
+								</select>
+
 							</div>
 
 						</div><!-- .m-catalog-view-cell -->

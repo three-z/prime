@@ -45,7 +45,8 @@ $(document).ready(function(){
 	$('.validate-form').validate({
 		errorClass: 'invalid',
 		validClass: 'valid',
-		errorElement: 'em',
+		errorElement: 'span',
+		wrapper: 'em',
 
 		onfocusout: function(element) {
 			$(element).valid();
@@ -158,7 +159,13 @@ $(document).ready(function(){
 	var asideBar = $('.m-aside');
 
 	asideBtn.on('click', function(){
-		$(this).toggleClass('active');
+
+		if ( $(this).hasClass('active') ) {
+			$(this).removeClass('active').text('Свернуть');
+		} else {
+			$(this).addClass('active').text('Показать');
+		}
+
 		asideBar.toggleClass('hidden');
 		content.toggleClass('aside-yes aside-no');
 
@@ -297,9 +304,34 @@ $(document).ready(function(){
 			$(this).addClass('active').siblings().removeClass('active');
 			tabContent.slideUp();
 			$( $(this).attr('href') ).slideToggle();
+
+			$('html, body').animate({ scrollTop: $('.m-aside').offset().top - 44 }, 500);
 		}
 
 		e.preventDefault();
+	});
+
+	// sticky filter tabs
+	var bTabs = $('.m-aside-tabs');
+	var bCatalog = $('.m-catalog');
+
+	if ( bTabs.length ) {
+		var bTabsPos = bTabs.offset().top - 57;
+
+		$(window).on('scroll', function(){
+			if ( $(window).scrollTop() > bTabsPos ) {
+				bTabs.addClass('sticky')
+			} else {
+				bTabs.removeClass('sticky')
+			}
+		});
+	}
+
+	// filters tip
+	var filtersTipClose = $('.m-filters-tip-close');
+
+	filtersTipClose.on('click', function(){
+		$(this).parent('.m-filters-tip').addClass('hidden');
 	});
 
 	// scroll to
@@ -334,14 +366,16 @@ $(document).ready(function(){
 		slide.on('click', function(){
 			if ( Modernizr.mq('(min-width: 668px)') ) {
 				$('html').css('overflow', 'hidden');
-				gallery.addClass('fullscreen');
+				gallery.addClass('fullscreen-new');
 
 				galleryMain.update(true);
 
-				scroll.perfectScrollbar({
-					suppressScrollY: true,
-					useBothWheelAxes: true
-				});
+				window.dispatchEvent(new Event('resize'));
+
+				// scroll.perfectScrollbar({
+				// 	suppressScrollY: true,
+				// 	useBothWheelAxes: true
+				// });
 			}
 		});
 
@@ -349,11 +383,11 @@ $(document).ready(function(){
 
 		close.on('click', function(){
 			$('html').css('overflow', '');
-			gallery.removeClass('fullscreen');
+			gallery.removeClass('fullscreen-new');
 
 			window.dispatchEvent(new Event('resize'));
 
-			scroll.perfectScrollbar('destroy');
+			// scroll.perfectScrollbar('destroy');
 		});
 
 		// window.dispatchEvent(new Event('resize'));
