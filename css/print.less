@@ -22,6 +22,17 @@ body {
 	font: 14px/22px @font-roboto;
 	color: @color-text;
 	height: 100%;
+	counter-reset: pagenum;
+}
+
+table {
+	width: 100%;
+}
+
+.b-main {
+	> tbody > tr {
+		page-break-inside: avoid;
+	}
 }
 
 .b-header {
@@ -75,8 +86,9 @@ body {
 	text-align: center;
 	line-height: 31px;
 	font-weight: 400;
+	margin-top: -14px;
 	margin-bottom: 32px;
-	page-break-before: always;
+	// page-break-before: always;
 
 	&--sale {
 		background: #93b43b;
@@ -245,9 +257,9 @@ body {
 
 }
 
-.b-text-info {
-	page-break-before: always;
-}
+// .b-text-info {
+// 	page-break-before: always;
+// }
 
 .b-article {
 	font-family: @font-arial;
@@ -259,6 +271,7 @@ body {
 		text-transform: uppercase;
 		font-weight: 400;
 		margin-bottom: 26px;
+		margin-top: 30px;
 	}
 
 	p {
@@ -281,7 +294,7 @@ body {
 .b-gal {
 	font-size: 0;
 	max-width: 350px*2 + 12px;
-
+	page-break-inside: avoid;
 
 	&__item {
 		box-sizing: border-box;
@@ -323,7 +336,7 @@ body {
 .b-footer {
 	font-size: 16px;
 	color: #c1c1c1;
-	float: footnote;
+	margin-top: 20px;
 
 	&:after { .blocky;.clear; }
 
@@ -334,12 +347,18 @@ body {
 	}
 
 	&__text {
-		float: left;
+		
 	}
 
 	&__page {
-		float: right;
+		text-align: right;
 		color: @color-text;
+		// padding-right: 5px;
+
+		&:after {
+			counter-increment: pagenum;
+			content: counter(pagenum);
+		}
 	}
 
 }

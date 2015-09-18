@@ -6,6 +6,13 @@ body {
   font: 14px/22px 'Roboto Condensed', Tahoma, Arial, sans-serif;
   color: #363b42;
   height: 100%;
+  counter-reset: pagenum;
+}
+table {
+  width: 100%;
+}
+.b-main > tbody > tr {
+  page-break-inside: avoid;
 }
 .b-header {
   background: #f0f0f0;
@@ -53,8 +60,8 @@ body {
   text-align: center;
   line-height: 31px;
   font-weight: 400;
+  margin-top: -14px;
   margin-bottom: 32px;
-  page-break-before: always;
 }
 .b-subtitle--sale {
   background: #93b43b;
@@ -178,9 +185,6 @@ body {
 .b-tile__params span:last-child:after {
   content: '';
 }
-.b-text-info {
-  page-break-before: always;
-}
 .b-article {
   font-family: Arial, sans-serif;
   text-align: justify;
@@ -191,6 +195,7 @@ body {
   text-transform: uppercase;
   font-weight: 400;
   margin-bottom: 26px;
+  margin-top: 30px;
 }
 .b-article p {
   margin-bottom: 5px;
@@ -207,6 +212,7 @@ body {
 .b-gal {
   font-size: 0;
   max-width: 712px;
+  page-break-inside: avoid;
 }
 .b-gal__item {
   box-sizing: border-box;
@@ -241,7 +247,7 @@ body {
 .b-footer {
   font-size: 16px;
   color: #c1c1c1;
-  float: footnote;
+  margin-top: 20px;
 }
 .b-footer:after {
   content: '';
@@ -253,10 +259,11 @@ body {
   color: #363b42;
   margin-right: 8px;
 }
-.b-footer__text {
-  float: left;
-}
 .b-footer__page {
-  float: right;
+  text-align: right;
   color: #363b42;
+}
+.b-footer__page:after {
+  counter-increment: pagenum;
+  content: counter(pagenum);
 }
