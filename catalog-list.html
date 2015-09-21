@@ -138,7 +138,7 @@
 
 				<h1>Продажа городской недвижимости</h1>
 
-				<div class="m-aside" id="#m-aside">
+				<div class="m-aside m-aside-with-tabs" id="#m-aside">
 
 					<div class="m-aside-header">
 
@@ -397,12 +397,18 @@
 
 										<h3>Состояние:</h3>
 										
-										<div class="m-filter-pick">
-											<input type="checkbox" id="rem-1" checked>
-											<label for="rem-1"><span><u>С ремонтом</u></span></label>
+										<div class="m-filter-toggle">
+											<input type="radio" id="filter-remont-1" name="filter-remont">
+											<label for="filter-remont-1"><span><u>С ремонтом</u></span></label>
 
-											<input type="checkbox" id="rem-2">
-											<label for="rem-2"><span><u>Без ремонта</u></span></label>
+											<select class="m-filter-toggle-switchy">
+												<option value="left">left</option>
+												<option value="" selected="selected"></option>
+												<option value="right">right</option>
+											</select>
+
+											<input type="radio" id="filter-remont-2" name="filter-remont">
+											<label for="filter-remont-2"><span><u>Без ремонта</u></span></label>
 										</div>
 									</div>
 

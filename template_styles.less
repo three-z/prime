@@ -38,6 +38,7 @@
 @header-height: 77px;
 @header-mobile-height: 57px;
 @aside-visible-width: 486px;
+// @aside-visible-width: 384px;
 @aside-hidden-width: 102px;
 @content-header-height: 47px;
 
@@ -303,6 +304,10 @@ header {
 		&:first-child {
 			a {
 				padding-left: 55px;
+
+				@media all and (max-width: 1600px) {
+					padding-left: 40px;
+				}
 			}
 		}
 
@@ -312,16 +317,29 @@ header {
 			height: inherit;
 			letter-spacing: 0.04em;
 
+			@media all and (max-width: 1600px) {
+				padding: 0 30px 0 30px;
+				letter-spacing: 0;
+			}
+
 			span {
 				display: inline-block;
 				vertical-align: middle;
 				line-height: 18px;
+
+				@media all and (max-width: 1600px) {
+					font-size: 12px;
+				}
 
 				u {
 					display: table;
 					text-decoration: none;
 					border-bottom: 1px solid;
 					line-height: 20px;
+
+					@media all and (max-width: 1600px) {
+						line-height: 16px;
+					}
 				}
 			}
 
@@ -367,6 +385,10 @@ header {
 .h-phone-number {
 	font-size: 23px;
 
+	@media all and (max-width: 1600px) {
+		font-size: 19px;
+	}
+
 	@media all and (max-width: @mq-medium) {
 		display: none;
 	}
@@ -375,6 +397,11 @@ header {
 .h-phone-link {
 	float: right;
 	border-bottom: 1px dashed;
+
+	@media all and (max-width: 1600px) {
+		font-size: 14px;
+		line-height: 16px;
+	}
 
 	@media all and (max-width: @mq-medium) {
 		display: block;
@@ -597,19 +624,30 @@ main {
 		padding-top: @header-height;
 		margin-right: @aside-visible-width;
 
+		@media all and (max-width: 1600px) {
+
+			&:not(.aside-detail-yes) {
+				margin-right: 384px;
+			}
+		}
+
 		@media all and (max-width: @mq-large) {
-			margin-right: @aside-visible-width - 40px;
+			// margin-right: @aside-visible-width - 40px;
 		}
 
 		@media all and (max-width: @mq-medium) {
 			padding-top: @header-mobile-height;
 			margin-right: 0;
+
+			&:not(.aside-detail-yes) {
+				margin-right: 0;
+			}
 		}
 
 		.m-catalog-col {
 			width: 33.3%;
 
-			@media all and (min-width: 1025px) and (max-width: @mq-large) {
+			@media all and (min-width: 1025px) and (max-width: 1400px) {
 				width: 50%;
 			}
 
@@ -819,8 +857,15 @@ main {
 	background: #ebebeb;
 	.transition(width, 0.5s, ease);
 
+	@media all and (max-width: 1600px) {
+		
+		&:not(.m-aside-detail) {
+			width: 384px;
+		}
+	}
+
 	@media all and (max-width: @mq-large) {
-		width: @aside-visible-width - 40px;
+		// width: @aside-visible-width - 40px;
 	}
 
 	@media all and (max-width: @mq-medium) {
@@ -830,6 +875,10 @@ main {
 		height: auto;
 		padding: 0 30px;
 		padding-top: 0;
+
+		&:not(.m-aside-detail) {
+			width: auto;
+		}
 	}
 
 	@media all and (max-width: @mq-small) {
@@ -1033,8 +1082,8 @@ main {
 			padding: 0 36px;
 			border-right: 1px solid #b5b5b5;
 
-			@media all and (max-width: @mq-large) {
-				padding: 0 25px;
+			@media all and (max-width: 1600px) {
+				padding: 0 19px;
 			}
 
 			span { border-bottom: 1px dashed; }
@@ -1116,7 +1165,7 @@ main {
 	left: 0;
 	.force-hardware;
 
-	@media all and (max-width: @mq-small) {
+	@media all and (max-width: @mq-medium) {
 		display: block;
 	}
 
@@ -1159,7 +1208,7 @@ main {
 } // .m-aside-tabs
 
 .m-aside-tabs-content {
-	@media all and (max-width: @mq-small) {
+	@media all and (max-width: @mq-medium) {
 		display: none;
 		.transition(none);
 	}
@@ -1199,12 +1248,12 @@ main {
 		// overflow: auto;
 	}
 
-	@media all and (max-width: @mq-small) {;
+	@media all and (max-width: @mq-medium) {;
 		.transition(none);
 	}
 
 	&.with-tip {
-		@media all and (max-width: @mq-small) {;
+		@media all and (max-width: @mq-medium) {;
 			padding: 0 22px;
 			margin: 0 -20px;
 		}
@@ -1341,6 +1390,10 @@ main {
 	width: 366px;
 	margin: 0 auto;
 	padding: 30px 0;
+
+	@media all and (max-width: 1600px) {
+		width: 287px;
+	}
 
 	&--wide {
 		width: 400px;
@@ -3035,9 +3088,12 @@ h1, h2 {
 	overflow: hidden;
 	margin-right: -27px;
 
+	@media all and (max-width: @mq-medium) {
+		padding: 25px 0;
+	}
+
 	@media all and (max-width: @mq-small) {
 		margin-right: 0;
-		padding: 25px 0;
 		overflow: visible;
 	}
 }
@@ -3088,6 +3144,12 @@ h1, h2 {
 	margin-bottom: 13px;
 	padding-bottom: 64%;
 	overflow: hidden;
+
+	@media all and (max-width: @mq-small) {
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-bottom: 70%;
+	}
 
 	> a {
 		display: block;
@@ -3992,12 +4054,17 @@ h1, h2 {
 		padding-top: 20px;
 	}
 
-	@media all and (max-width: @mq-small) {
+	@media all and (max-width: @mq-medium) {
+		box-sizing: border-box;
 		background: #ebebeb;
+		display: none;
+		padding: 30px 20px;
+	}
+
+	@media all and (max-width: @mq-small) {
+		box-sizing: content-box;
 		margin-left: -20px;
 		margin-right: -20px;
-		padding: 30px 20px;
-		display: none;
 	}
 
 	&:after {
@@ -4016,7 +4083,7 @@ h1, h2 {
 			top: 0;
 		}
 
-		@media all and (max-width: @mq-small) {
+		@media all and (max-width: @mq-medium) {
 			display: none;
 		}
 	}
@@ -4047,7 +4114,7 @@ h1, h2 {
 	position: relative;
 	z-index: 2;
 
-	@media all and (max-width: @mq-small) {
+	@media all and (max-width: @mq-medium) {
 		float: none;
 		margin-left: 0;
 		margin-right: 0;
@@ -4058,8 +4125,9 @@ h1, h2 {
 		min-width: 205px;
 		background: #fff;
 		padding: 0 49px 0 18px;
+		color: #4d4d4d;
 
-		@media all and (max-width: @mq-small) {
+		@media all and (max-width: @mq-medium) {
 			min-width: 100%;
 		}
 
@@ -4097,7 +4165,7 @@ h1, h2 {
 	.sod_select {
 		min-width: 155px;
 
-		@media all and (max-width: @mq-small) {
+		@media all and (max-width: @mq-medium) {
 			min-width: 100%;
 		}
 	}
@@ -4143,6 +4211,10 @@ h1, h2 {
 		vertical-align: middle;
 		color: #dfdfdf;
 		font: 38px @font-currency;
+
+		@media all and (max-width: 1600px) {
+			font-size: 31px;
+		}
 
 		&:hover {
 			color: #116fb6;
@@ -4190,6 +4262,9 @@ h1, h2 {
 
 .m-filters {
 
+	@media all and (max-width: 1600px) {
+		font-size: 12.8px;
+	}
 }
 
 .m-filters-tip {
@@ -4281,6 +4356,10 @@ h1, h2 {
 		font-weight: 400;
 		margin-bottom: 26px;
 
+		@media all and (max-width: 1600px) {
+			font-size: 14.7px;
+		}
+
 		@media all and (max-width: @mq-small) {
 			text-transform: none;
 			margin-bottom: 17px;
@@ -4298,6 +4377,11 @@ h1, h2 {
 	.sod_select {
 		margin-left: -14px;
 		margin-right: -14px;
+		font-size: 16px;
+
+		@media all and (max-width: 1600px) {
+			font-size: 14.7px;
+		}
 
 		@media all and (max-width: @mq-medium) {
 			max-width: 100%;
@@ -4473,6 +4557,10 @@ h1, h2 {
 			text-align: center;
 			cursor: pointer;
 
+			@media all and (max-width: 1600px) {
+				font-size: 14.7px;
+			}
+
 			@media all and (max-width: @mq-small) {
 				width: 34px;
 				height: 34px;
@@ -4512,7 +4600,7 @@ h1, h2 {
 		margin-bottom: 0;
 
 		label {
-			margin-right: 44px;
+			margin-right: 34px;
 
 			@media all and (max-width: 400px) {
 				margin-right: 24px;
@@ -4521,6 +4609,14 @@ h1, h2 {
 			@media all and (max-width: @mq-small) {
 				width: auto !important;
 				vertical-align: middle !important;
+			}
+
+			span {
+				width: auto !important;
+
+				u {
+					border-bottom: 1px dashed;
+				}
 			}
 
 			&:last-child { margin-right: 0; }
@@ -4542,8 +4638,16 @@ h1, h2 {
 				display: inline-block;
 				pointer-events: none;
 
+				@media all and (max-width: 1600px) {
+					width: 75px;
+				}
+
+				@media all and (max-width: @mq-medium) {
+					width: auto;
+				}
+
 				u {
-					border-bottom: 1px dashed;
+					// border-bottom: 1px dashed;
 					text-decoration: none;
 				}
 			}
@@ -4676,12 +4780,16 @@ h1, h2 {
 		width: 70px + 11px*2;
 		height: 22px;
 		// padding: 10px 0;
-		margin: 0 13px;
+		margin: 0 5px 0 5px;
 		border-radius: 3px;
 		position: relative;
 		cursor: pointer;
 		-webkit-user-select: none;
 		-moz-user-select: none;
+
+		@media all and (max-width: @mq-medium) {
+			margin: 0 13px;
+		}
 
 		@media all and (max-width: @mq-small) {
 			vertical-align: 1px;
@@ -4747,6 +4855,10 @@ h1, h2 {
 		line-height: 38px;
 		-webkit-user-select: none;
 		-moz-user-select: none;
+
+		@media all and (max-width: 1600px) {
+			font-size: 14.7px;
+		}
 
 		&.active {
 			z-index: 11;
@@ -4822,6 +4934,10 @@ h1, h2 {
 			text-transform: uppercase;
 			cursor: pointer;
 			position: relative;
+
+			@media all and (max-width: 1600px) {
+				font-size: 12.8px;
+			}
 
 			span {
 				display: inline-block;
@@ -5260,8 +5376,12 @@ h1, h2 {
 
 .m-aside {
 	
-	@media all and (max-width: @mq-small) {
-		padding-top: 44px;
+	@media all and (max-width: @mq-medium) {
+		// padding-top: 44px;
+
+		&.m-aside-with-tabs {
+			padding-top: 44px;
+		}
 	}
 
 	.nano {

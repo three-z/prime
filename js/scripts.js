@@ -279,7 +279,7 @@ $(document).ready(function(){
 	});
 
 	$(window).on('resize', function(){
-		if ( Modernizr.mq('(min-width: 668px)') ) {
+		if ( Modernizr.mq('(min-width: 960px)') ) {
 			tabContent.slideDown();
 			hiddenFilters.slideDown();
 		} else {
@@ -315,17 +315,22 @@ $(document).ready(function(){
 	var bTabs = $('.m-aside-tabs');
 	var bCatalog = $('.m-catalog');
 
-	if ( bTabs.length ) {
-		var bTabsPos = bTabs.offset().top - 57;
+	function stickyFilterTabs() {
+		if ( bTabs.length ) {
+			var bTabsPos = bTabs.offset().top - 57;
 
-		$(window).on('scroll', function(){
-			if ( $(window).scrollTop() > bTabsPos ) {
-				bTabs.addClass('sticky')
-			} else {
-				bTabs.removeClass('sticky')
-			}
-		});
+			$(window).on('scroll', function(){
+				if ( $(window).scrollTop() > bTabsPos ) {
+					bTabs.addClass('sticky')
+				} else {
+					bTabs.removeClass('sticky')
+				}
+			});
+		}
 	}
+
+	stickyFilterTabs();
+	$(window).on('resize', stickyFilterTabs);
 
 	// filters tip
 	var filtersTipClose = $('.m-filters-tip-close');
