@@ -82,6 +82,18 @@ $(document).ready(function(){
 		}
 	});
 
+	// bg videos
+
+	var videoPlayBtn = $('.m-content-cover__play');
+
+	if ( !$('html').hasClass('supports') ) {
+		videoPlayBtn.addClass('visible')
+	}
+
+	videoPlayBtn.on('click', function(){
+		$(this).removeClass('visible').prev('video').get(0).play();
+	});
+
 	// home page
 	// if ( $('body').hasClass('home') ) {
 	// 	noBounce.init({
