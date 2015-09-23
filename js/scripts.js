@@ -317,14 +317,18 @@ $(document).ready(function(){
 			tabContent.slideUp();
 			$( $(this).attr('href') ).slideToggle();
 
-			$('html, body').animate({ scrollTop: $('.m-aside').offset().top - 44 }, 500);
+			// $('html, body').animate({ scrollTop: $('.m-aside').offset().top - 44 }, 500);
+
+			if ( !$('.m-aside-tabs').hasClass('m-aside-tabs--static') ) {
+				$('html, body').animate({ scrollTop: $('.m-aside').offset().top - 44 }, 500);
+			}
 		}
 
 		e.preventDefault();
 	});
 
 	// sticky filter tabs
-	var bTabs = $('.m-aside-tabs');
+	var bTabs = $('.m-aside-tabs:not(.m-aside-tabs--static)');
 	var bCatalog = $('.m-catalog');
 
 	function stickyFilterTabs() {

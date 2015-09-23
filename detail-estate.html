@@ -458,10 +458,10 @@
 
 				</div><!-- .m-content-section -->
 
-				<!-- <div class="m-aside-tabs">
+				<div class="m-aside-tabs m-aside-tabs--static">
 					<a class="m-aside-tabs-filter" href="#m-tab-filter-content">Фильтровать</a>
 					<a class="m-aside-tabs-sort" href="#m-tab-sort-content">Сортировать</a>
-				</div> -->
+				</div>
 
 				<div class="m-aside-content-pick m-aside-tabs-content" id="m-tab-filter-content">
 					
@@ -614,12 +614,18 @@
 
 						<h3>Состояние:</h3>
 						
-						<div class="m-filter-pick">
-							<input type="checkbox" id="rem-12" checked>
-							<label for="rem-1"><span><u>С ремонтом</u></span></label>
+						<div class="m-filter-toggle">
+							<input type="radio" id="filter-remont-2-1" name="filter-remont-2">
+							<label for="filter-remont-2-1"><span><u>С ремонтом</u></span></label>
 
-							<input type="checkbox" id="rem-22">
-							<label for="rem-2"><span><u>Без ремонта</u></span></label>
+							<select class="m-filter-toggle-switchy">
+								<option value="left">left</option>
+								<option value="" selected="selected"></option>
+								<option value="right">right</option>
+							</select>
+
+							<input type="radio" id="filter-remont-2-2" name="filter-remont-2">
+							<label for="filter-remont-2-2"><span><u>Без ремонта</u></span></label>
 						</div>
 					</div>
 
@@ -631,24 +637,20 @@
 
 						<div class="m-catalog-view-cell">
 
-							<div class="m-catalog-view-sort">
+							<ul class="m-catalog-view-sort">
+								<li><a class="up active" href="#"><span>По цене</span></a></li>
+								<li><a class="down" href="#"><span>По площади</span></a></li>
+								<li><a class="down" href="#"><span>По дате</span></a></li>
+							</ul>
 
-								<select>
-									<option value="1">По дате публикации</option>
-									<option value="2">По цене</option>
-									<option value="3">По площади</option>
-								</select>
+							<div class="m-catalog-view-show">
+								<span class="m-catalog-view-show-title">Отображать объектов:</span>
 
-							</div><!-- .m-catalog-view-sort -->
-
-							<div class="m-catalog-view-sort m-catalog-view-show">
-								
-								<select>
-									<option value="1">20 объектов</option>
-									<option value="2">40 объектов</option>
-									<option value="3">Все объекты</option>
-								</select>
-
+								<ul>
+									<li><a class="active" href="#"><span>20</span></a></li>
+									<li><a href="#"><span>40</span></a></li>
+									<li><a href="#"><span>ВСЕ</span></a></li>
+								</ul>
 							</div>
 
 						</div><!-- .m-catalog-view-cell -->
@@ -660,7 +662,7 @@
 								<span class="m-pagination-counter">1/29</span>
 								<a class="m-pagination-arrow m-pagination-next" href="#"></a>
 							</div>						
-				
+						
 						</div><!-- .m-catalog-view-cell -->
 
 					</div><!-- .m-catalog-view -->
