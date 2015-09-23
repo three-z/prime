@@ -467,19 +467,19 @@ $(document).ready(function(){
 
 
 	// Gallery height
-	var galleryWrapper = $('.gallery');
+	// var galleryWrapper = $('.gallery');
 
-	function galleryWrapperHeight() {
-		if ( Modernizr.mq('(min-width: 1023px)') ) {
-			galleryWrapper.css('height', $(window).height() - 150);
-		} else {
-			galleryWrapper.css('height', '');
-		}
-	}
+	// function galleryWrapperHeight() {
+	// 	if ( Modernizr.mq('(min-width: 1023px)') ) {
+	// 		galleryWrapper.css('height', $(window).height() - 150);
+	// 	} else {
+	// 		galleryWrapper.css('height', '');
+	// 	}
+	// }
 
-	galleryWrapperHeight()
+	// galleryWrapperHeight()
 
-	$(window).on('resize', galleryWrapperHeight);
+	// $(window).on('resize', galleryWrapperHeight);
 
 	// tile slider
 	var tileSlider = $('.tile-slider');
