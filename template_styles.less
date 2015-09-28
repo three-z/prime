@@ -3294,10 +3294,20 @@ h1, h2 {
 		top: 0;
 	}
 
+	.swiper-slide {
+		overflow: hidden;
+	}
+
 	img {
-		width: 100%;
+		max-width: 1000%;
+		min-width: 100%;
+		min-height: 100%;
 		position: absolute;
-		top: 0;
+		top: -9999px;
+		bottom: -9999px;
+		left: -9999px;
+		right: -9999px;
+		margin: auto;
 	}
 
 	.tile-slider {
