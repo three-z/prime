@@ -5,21 +5,21 @@ $(document).ready(function(){
 	    outer.style.visibility = "hidden";
 	    outer.style.width = "100px";
 	    document.body.appendChild(outer);
-	    
+
 	    var widthNoScroll = outer.offsetWidth;
 	    // force scrollbars
 	    outer.style.overflow = "scroll";
-	    
+
 	    // add innerdiv
 	    var inner = document.createElement("div");
 	    inner.style.width = "100%";
-	    outer.appendChild(inner);        
-	    
+	    outer.appendChild(inner);
+
 	    var widthWithScroll = inner.offsetWidth;
-	    
+
 	    // remove divs
 	    outer.parentNode.removeChild(outer);
-	    
+
 	    return widthNoScroll - widthWithScroll;
 	}
 
@@ -122,7 +122,7 @@ $(document).ready(function(){
 			$('body').on('touchstart','nav',function(e) {
 
 			    if (!scrolling) {
-			        scrolling = true;   
+			        scrolling = true;
 			        if (e.currentTarget.scrollTop === 0) {
 			          e.currentTarget.scrollTop = 1;
 			        } else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
@@ -216,10 +216,18 @@ $(document).ready(function(){
 		}
 	}
 
-	$('.wrapper select:not(.m-filter-toggle-switchy)').selectOrDie({
-		size: 5,
-		onChange: selectPos
+	$('.wrapper select:not(.m-filter-toggle-switchy)').each(function(){
+		if(!$(this).hasClass('no-select')) {
+			$(this).selectOrDie({
+				size: 5,
+				onChange: selectPos
+			});
+		}
 	});
+
+	$(".js-select2").select2({
+  placeholder: "Select a state"
+});
 
 	$('.sod_select').on('click', function(){
 
@@ -360,8 +368,8 @@ $(document).ready(function(){
 	var root = $('html, body');
 
 	scrollBtn.on('click', function(e){
-		
-		root.animate({ 
+
+		root.animate({
 			scrollTop: $( $(this).attr('href') ).offset().top - 100
 		}, 800);
 
@@ -452,7 +460,7 @@ $(document).ready(function(){
 			galleryNum();
 
 			// console.log(activeInd)
-			
+
 		});
 
 		galleryThumbsChild.on('click', function(){
@@ -506,7 +514,7 @@ $(document).ready(function(){
 	// 		window.dispatchEvent(new Event('resize'));
 	// 	}, 500);
 	// });
-	
+
 	// detail page spoilers, infotext spoilers
 	var sectionTitle = $('section').find('h2');
 	var sectionContent = $('section').find('.s-content');
@@ -646,11 +654,11 @@ $(document).ready(function(){
 	hiArrow.on('click', function(e){
 
 		if ( $(window).scrollTop() >= 50 ) {
-			root.animate({ 
+			root.animate({
 				scrollTop: 0
 			}, 700);
 		} else {
-			root.animate({ 
+			root.animate({
 				scrollTop: $( $(this).attr('href') ).offset().top - 250
 			}, 700);
 		}
