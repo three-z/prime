@@ -6481,13 +6481,13 @@ button {
   display: block;
   position: relative;
   line-height: 1;
-  max-width: 350px;
+  /* max-width: 350px; */
   padding: 0 30px;
   height: 38px;
   margin-bottom: 6px;
   line-height: 38px;
   text-align: left;
-  outline: 0;
+  /* outline: 0; */
   cursor: pointer;
   margin-left: -14px;
   margin-right: -14px;
@@ -6535,6 +6535,7 @@ button {
   padding-left: 0;
   line-height: 38px;
   color: #116fb6;
+  outline: none;
 }
 .m-filters .select2-container--default .select2-selection--single .select2-selection__placeholder {
   color: #a8a8a8;
@@ -6551,7 +6552,10 @@ button {
 .select2-container--open .select2-dropdown--above,
 .select2-container--open .select2-dropdown--below {
   border-radius: 0 !important;
-  border: 1px solid #aaa !important;
+  /* border: 1px solid #aaa !important; */
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 .select2-results__option {
   padding-left: 20px !important;
